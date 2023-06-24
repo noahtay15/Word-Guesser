@@ -1,0 +1,144 @@
+﻿<Page x:Class="Word_Guesser.PlayerNumberScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Word_Guesser"
+        mc:Ignorable="d"
+        Title="Word Guesser"
+        Background="#004">
+    <Viewbox Stretch="Uniform">
+        <Grid Name="PlayerNumberGrid" Background="#004" Width="400">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="413*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock
+            HorizontalAlignment="Center" 
+            Margin="0,23,0,0" 
+            TextWrapping="Wrap" 
+            Text="How Many Players?" 
+            VerticalAlignment="Top" 
+            Height="56" 
+            Width="348"
+            FontSize="40"
+            Background="Transparent">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="5" Opacity="1" />
+                </TextBlock.Effect>
+                <TextBlock.Foreground>
+                    <SolidColorBrush Color="White" />
+                </TextBlock.Foreground>
+            </TextBlock>
+            <Button Name="BackToTitleButton"
+            Content="Back" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Bottom" 
+            Height="33" 
+            Width="60"
+            Cursor="Hand"
+            Click="BackToTitleButtonClick" 
+            Margin="-157,0,0,5"
+            MouseEnter="BackToTitleButton_MouseEnter"
+            MouseLeave="BackToTitleButton_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse x:Name="BackToTitleButtonEllipse" Fill="LightBlue" Width="60" Height="30" Stroke="Black" StrokeThickness="4"/>
+                            <ContentPresenter x:Name="BackToTitleButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Grid Name="ButtonGrid" Background="LightGray" Height="250" Width="400" Margin="0,82,0,81">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="125"/>
+                    <RowDefinition Height="125"/>
+                </Grid.RowDefinitions>
+                <Button Name="OnePlayerButton"
+                Content="1" 
+                FontSize="60"
+                HorizontalAlignment="Left" 
+                Height="115" 
+                Margin="5,0,0,0" 
+                VerticalAlignment="Center" 
+                Width="190"
+                Click="OnePlayerButtonClick" 
+                Cursor="Hand"
+                MouseEnter="OnePlayerButton_MouseEnter"
+                MouseLeave="OnePlayerButton_MouseLeave">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Rectangle Name="OnePlayerButtonRectangle" Fill="LightBlue" Stroke="Black" StrokeThickness="3"/>
+                                <ContentPresenter Name="OnePlayerButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Name="ThreePlayerButton"
+                Content="3" 
+                FontSize="60"
+                HorizontalAlignment="Left"
+                Height="115" 
+                VerticalAlignment="Center" 
+                Width="190"
+                Click="ThreePlayerButtonClick" 
+                Cursor="Hand" Grid.Row="1" Margin="5,0,0,0"
+                MouseEnter="ThreePlayerButton_MouseEnter"
+                MouseLeave="ThreePlayerButton_MouseLeave">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Rectangle Name="ThreePlayerButtonRectangle" Fill="LightBlue" Stroke="Black" StrokeThickness="3"/>
+                                <ContentPresenter Name="ThreePlayerButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Name="TwoPlayerButton"
+                Content="2" 
+                FontSize="60"
+                HorizontalAlignment="Left" 
+                Height="115"
+                VerticalAlignment="Center" 
+                Width="190"
+                Click="TwoPlayerButtonClick"
+                Cursor="Hand" Margin="204,0,0,0"
+                MouseEnter="TwoPlayerButton_MouseEnter"
+                MouseLeave="TwoPlayerButton_MouseLeave">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Rectangle Name="TwoPlayerButtonRectangle" Fill="LightBlue" Stroke="Black" StrokeThickness="3"/>
+                                <ContentPresenter Name="TwoPlayerButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Name="FourPlayerButton"
+                FontSize="60"
+                Content="4" 
+                HorizontalAlignment="Left" 
+                Height="115"
+                VerticalAlignment="Center" 
+                Width="190"
+                Click="FourPlayerButtonClick" 
+                Cursor="Hand" 
+                Margin="204,0,0,0" 
+                Grid.Row="1"
+                MouseEnter="FourPlayerButton_MouseEnter"
+                MouseLeave="FourPlayerButton_MouseLeave">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Rectangle Name="FourPlayerButtonRectangle" Fill="LightBlue" Stroke="Black" StrokeThickness="3"/>
+                                <ContentPresenter Name="FourPlayerButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Page>

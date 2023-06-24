@@ -1,0 +1,81 @@
+﻿<Page x:Class="Word_Guesser.PlayersInitScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Word_Guesser"
+        mc:Ignorable="d"
+        Title="Word Guesser"
+        Background="#004">
+    <Viewbox Stretch="Uniform">
+        <Grid Name="PlayerInitGrid" Background="#004" Width="800" Height="450">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="450"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock 
+                Text="Choose Your Name and Color"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Height="52"
+                Width="528"
+                FontSize="40"
+                Background="Transparent">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="5" Opacity="1" />
+                </TextBlock.Effect>
+                <TextBlock.Foreground>
+                    <SolidColorBrush Color="White" />
+                </TextBlock.Foreground>
+            </TextBlock>
+            <Grid>
+                <Border BorderBrush="Gray" BorderThickness="4" Margin="84,54,84,54">
+                    <Grid Name="TBD" Background="LightGray">
+                        <Grid Margin="10,10,312,167">
+                            <TextBlock
+                                HorizontalAlignment="Center" 
+                                Margin="0,6,0,0" 
+                                TextWrapping="Wrap" 
+                                Text="PLAYER 1" 
+                                VerticalAlignment="Top" 
+                                Width="84" 
+                                FontSize="20" 
+                                Height="24"
+                                >
+                                <TextBlock.Effect>
+                                    <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="5" Opacity="10"/>
+                                </TextBlock.Effect>
+                                <TextBlock.Foreground>
+                                    <SolidColorBrush Color="White" />
+                                </TextBlock.Foreground>
+                            </TextBlock>
+                            <TextBlock Text="Name:" Margin="65,46,194,92" FontSize="15"/>
+                            <TextBox Margin="126,45,21,91"/>
+                            <TextBlock Text="Color:" Margin="65,79,194,59" FontSize="15"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+            <Button Name="BackToPlayerNumberButton"
+            Content="Back" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Bottom" 
+            Height="33" 
+            Width="60"
+            Cursor="Hand"
+            Click="BackToPlayerNumberButton_Click" 
+            Margin="10,0,0,10"
+            MouseEnter="BackToPlayerNumberButton_MouseEnter"
+            MouseLeave="BackToPlayerNumberButton_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse x:Name="BackToPlayerNumberButtonEllipse" Fill="LightBlue" Width="60" Height="30" Stroke="Black" StrokeThickness="4"/>
+                            <ContentPresenter x:Name="BackToPlayerNumberButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+    </Viewbox>
+</Page>

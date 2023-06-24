@@ -1,0 +1,33 @@
+﻿
+General:
+- Put this in a GitHub repository
+- Figure out how to get VS to connect to the GitHub repository
+
+
+MainWindow:
+- Get rid of the bar up top
+
+Player:
+-May have more but idk
+
+PlayerInitBox:
+- Pretty much all of it
+- Position of the box(es) will be dependent on how many there are, therefore there will be an overloaded method to set that up
+- Constructor will have parameters 
+	- title: "Player _ choose your name and color"
+- 
+
+PlayerNumberScreen:
+
+PlayersInitScreen:
+- Do PlayerInitBox class
+	- Finish constructor after
+
+QuestionsScreen:
+-All of it
+
+TitleScreen:
+-May come back after completing everything and touch up the xaml
+
+WinnerScreen:
+-All of it

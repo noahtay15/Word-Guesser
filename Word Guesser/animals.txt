@@ -1,0 +1,10 @@
+Dog
+Cat
+Mouse
+Lion
+Tiger
+Monkey
+Wolf
+Bear
+Giraffe
+Snake

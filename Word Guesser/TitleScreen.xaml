@@ -1,0 +1,74 @@
+﻿<Page x:Class="Word_Guesser.TitleScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Word_Guesser"
+        mc:Ignorable="d"
+        Title="TitleScreen"
+        Background="#004">
+    <Viewbox Stretch="Uniform">
+        <Grid x:Name="TitleScreenGrid" Visibility="Visible" Width="186">
+            <Grid x:Name="TitleGrid" Grid.RowSpan="3">
+                <Grid.Resources>
+                    <Geometry x:Key="CustomShape">
+                        M10,0 L30,0 L40,10 L40,30 L30,40 L10,40 L0,30 L0,10 Z
+                    </Geometry>
+                </Grid.Resources>
+            </Grid>
+            <Border Background="Gray" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="0,58,0,153">
+                <TextBlock Text="Word Guesser" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="5" Opacity="1" />
+                    </TextBlock.Effect>
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="LightBlue" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+            </Border>
+
+            <Button x:Name="PlayButton"
+                Content="Play" 
+                Click="PlayButtonClick" 
+                HorizontalAlignment ="Center" 
+                VerticalAlignment ="Top" 
+                Margin="0,133,0,0"
+                Cursor="Hand"
+                MouseEnter="PlayButtonMouseEnter"
+                MouseLeave="PlayButtonMouseLeave"
+                FontSize="16"
+                >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse Name="PlayButtonEllipse" Fill="LightBlue" Width="100" Height="50" Stroke="Black" StrokeThickness="4"/>
+                            <ContentPresenter x:Name="PlayButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button x:Name="QuitButton"
+                Content="Quit"
+                Click="QuitButtonClick"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Top" 
+                Height="50" 
+                Width="100"
+                Cursor="Hand"
+                Margin="0,190,0,0"
+                MouseEnter="QuitButtonMouseEnter"
+                MouseLeave="QuitButtonMouseLeave"
+                FontSize="16" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse x:Name="QuitButtonEllipse" Fill="LightBlue" Width="100" Height="50" Stroke="Black" StrokeThickness="4"/>
+                            <ContentPresenter x:Name="QuitButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+    </Viewbox>
+</Page>
