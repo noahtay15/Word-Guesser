@@ -15,7 +15,6 @@ PlayerInitBox:
 - Position of the box(es) will be dependent on how many there are, therefore there will be an overloaded method to set that up
 - Constructor will have parameters 
 	- title: "Player _ choose your name and color"
-- 
 
 PlayerNumberScreen:
 

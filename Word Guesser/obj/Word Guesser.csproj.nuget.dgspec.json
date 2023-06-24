@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Noaht\\OneDrive\\Desktop\\Include in Portfolio\\Word Guesser Project\\Word Guesser\\Word Guesser.csproj": {}
+    "C:\\Users\\Noaht\\source\\repos\\Word-Guesser\\Word Guesser\\Word Guesser.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Noaht\\OneDrive\\Desktop\\Include in Portfolio\\Word Guesser Project\\Word Guesser\\Word Guesser.csproj": {
+    "C:\\Users\\Noaht\\source\\repos\\Word-Guesser\\Word Guesser\\Word Guesser.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Noaht\\OneDrive\\Desktop\\Include in Portfolio\\Word Guesser Project\\Word Guesser\\Word Guesser.csproj",
+        "projectUniqueName": "C:\\Users\\Noaht\\source\\repos\\Word-Guesser\\Word Guesser\\Word Guesser.csproj",
         "projectName": "Word Guesser",
-        "projectPath": "C:\\Users\\Noaht\\OneDrive\\Desktop\\Include in Portfolio\\Word Guesser Project\\Word Guesser\\Word Guesser.csproj",
+        "projectPath": "C:\\Users\\Noaht\\source\\repos\\Word-Guesser\\Word Guesser\\Word Guesser.csproj",
         "packagesPath": "C:\\Users\\Noaht\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Noaht\\OneDrive\\Desktop\\Include in Portfolio\\Word Guesser Project\\Word Guesser\\obj\\",
+        "outputPath": "C:\\Users\\Noaht\\source\\repos\\Word-Guesser\\Word Guesser\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
