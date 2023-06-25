@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -24,43 +25,78 @@ namespace Word_Guesser
             InitializeComponent();
             if(numPlayers == 1)
             {
-                PlayerInitBox box1 = new PlayerInitBox("Player 1");
-                //SET THE MARGIN TO THE MIDDLE OF THE GRID
+                createPlayerInitBox("Player 1", 161, 88, 161, 88, PlayerInitContainerGrid);//middle
             }
             else if(numPlayers == 2)
             {
-                PlayerInitBox box1 = new PlayerInitBox("Player 1");
-                //SET THE MARGIN TO LEFT SIDE
-                PlayerInitBox box2 = new PlayerInitBox("Player 2");
-                //SET THE MARGIN TO RIGHT SIDE
+                createPlayerInitBox("Player 1", 10, 88, 213, 88, PlayerInitContainerGrid); //middle left
+                createPlayerInitBox("Player 2", 312, 88, 10, 88, PlayerInitContainerGrid); //middle right
             }
             else if(numPlayers == 3)
             {
-                PlayerInitBox box1 = new PlayerInitBox("Player 1");
-                //SET THE MARGIN TO THE TOP LEFT CORNER
-                PlayerInitBox box2 = new PlayerInitBox("Player 2");
-                //SET THE MARGIN TO THE TOP RIGHT CORNER
-                PlayerInitBox box3 = new PlayerInitBox("Player 3");
-                //SET THE MARGIN TO THE BOTTOM CENTER
+                createPlayerInitBox("Player 1", 10, 10, 312, 167, PlayerInitContainerGrid); //top left
+                createPlayerInitBox("Player 2", 10, 167, 312, 10, PlayerInitContainerGrid); //top right
+                createPlayerInitBox("Player 3", 161, 166, 161, 10, PlayerInitContainerGrid); //bottom middle
             }
             else if(numPlayers == 4)
             {
-                PlayerInitBox box1 = new PlayerInitBox("Player 1");
-                //SET THE MARGIN TO THE TOP LEFT CORNER
-                PlayerInitBox box2 = new PlayerInitBox("Player 2");
-                //SET THE MARGIN TO THE TOP RIGHT CORNER
-                PlayerInitBox box3 = new PlayerInitBox("Player 3");
-                //SET THE MARGIN TO THE BOTTOM RIGHT CORNER
-                PlayerInitBox box4 = new PlayerInitBox("Player 4");
-                //SET THE MARGIN TO THE BOTTOM RIGHT CORNER
+                createPlayerInitBox("Player 1", 10, 10, 312, 167, PlayerInitContainerGrid); //top left
+                createPlayerInitBox("Player 2", 10, 167, 312, 10, PlayerInitContainerGrid); //top right
+                createPlayerInitBox("Player 3", 312, 10, 167, 10, PlayerInitContainerGrid); //bottom left
+                createPlayerInitBox("Player 4", 312, 167, 10, 10, PlayerInitContainerGrid); //bottom right
             }
             else
             {
                 throw new Exception("Invalid input. Congrats, you shouldn't have been able to get here, yet here you are.");
             }
 
-
         }
+
+        public void createPlayerInitBox(String title, double left, double top, double right, double bottom, Grid parentGrid)
+        {
+            Grid grid = new Grid();
+            parentGrid.Children.Add(grid);
+
+            grid.Margin = new Thickness(left, top, right, bottom);
+
+            //Ex: Player 1
+            TextBlock playerText = new TextBlock();
+            playerText.Text = title;
+            playerText.HorizontalAlignment = HorizontalAlignment.Center;
+            playerText.VerticalAlignment = VerticalAlignment.Center;
+            playerText.Margin = new Thickness(0, 6, 0, 0);
+            playerText.TextWrapping = TextWrapping.Wrap;
+            playerText.Width = 84;
+            playerText.Height = 24;
+            playerText.FontSize = 20;
+            playerText.Effect = new DropShadowEffect
+            {
+                Color = Colors.Black,
+                ShadowDepth = 0,
+                BlurRadius = 5,
+                Opacity = 10
+            };
+            playerText.Foreground = new SolidColorBrush(Colors.White);
+
+            //Name
+            TextBlock nameText = new TextBlock();
+            nameText.Text = "Name:";
+            nameText.Margin = new Thickness(65, 46, 194, 92);
+            nameText.FontSize = 15;
+
+            //Text Box
+            TextBox textBox = new TextBox();
+            textBox.Margin = new Thickness(126, 45, 21, 91);
+
+            //Color
+            TextBlock colorText = new TextBlock();
+            textBox.Text = "Color:";
+            textBox.Margin = new Thickness(65, 79, 194, 59);
+            textBox.FontSize = 15;
+
+            //Color Picker
+        }
+
 
         private void BackToPlayerNumberButton_Click(object sender, RoutedEventArgs e)
         {

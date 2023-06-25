@@ -30,29 +30,7 @@
             </TextBlock>
             <Grid>
                 <Border BorderBrush="Gray" BorderThickness="4" Margin="84,54,84,54">
-                    <Grid Name="TBD" Background="LightGray">
-                        <Grid Margin="10,10,312,167">
-                            <TextBlock
-                                HorizontalAlignment="Center" 
-                                Margin="0,6,0,0" 
-                                TextWrapping="Wrap" 
-                                Text="PLAYER 1" 
-                                VerticalAlignment="Top" 
-                                Width="84" 
-                                FontSize="20" 
-                                Height="24"
-                                >
-                                <TextBlock.Effect>
-                                    <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="5" Opacity="10"/>
-                                </TextBlock.Effect>
-                                <TextBlock.Foreground>
-                                    <SolidColorBrush Color="White" />
-                                </TextBlock.Foreground>
-                            </TextBlock>
-                            <TextBlock Text="Name:" Margin="65,46,194,92" FontSize="15"/>
-                            <TextBox Margin="126,45,21,91"/>
-                            <TextBlock Text="Color:" Margin="65,79,194,59" FontSize="15"/>
-                        </Grid>
+                    <Grid x:Name="PlayerInitContainerGrid" Background="LightGray">
                     </Grid>
                 </Border>
             </Grid>
@@ -64,7 +42,7 @@
             Width="60"
             Cursor="Hand"
             Click="BackToPlayerNumberButton_Click" 
-            Margin="10,0,0,10"
+            Margin="10,0,0,6"
             MouseEnter="BackToPlayerNumberButton_MouseEnter"
             MouseLeave="BackToPlayerNumberButton_MouseLeave">
                 <Button.Template>

@@ -85,7 +85,7 @@ namespace Word_Guesser {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Word Guesser;V1.0.0.0;component/titlescreen.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Word Guesser;component/titlescreen.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\TitleScreen.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

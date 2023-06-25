@@ -38,7 +38,7 @@
             Width="60"
             Cursor="Hand"
             Click="BackToTitleButtonClick" 
-            Margin="-157,0,0,5"
+            Margin="-66,0,0,6"
             MouseEnter="BackToTitleButton_MouseEnter"
             MouseLeave="BackToTitleButton_MouseLeave">
                 <Button.Template>

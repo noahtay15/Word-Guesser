@@ -21,6 +21,8 @@ PlayerNumberScreen:
 PlayersInitScreen:
 - Do PlayerInitBox class
 	- Finish constructor after
+- For some reason, init boxes do now show
+	- not sure if because it is not getting the player number from PlayerNumberScreen, or i have to make it visible?? 
 
 QuestionsScreen:
 -All of it

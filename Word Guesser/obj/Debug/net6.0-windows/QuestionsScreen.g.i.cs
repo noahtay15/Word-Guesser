@@ -53,7 +53,7 @@ namespace Word_Guesser {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Word Guesser;V1.0.0.0;component/questionsscreen.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Word Guesser;component/questionsscreen.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\QuestionsScreen.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
