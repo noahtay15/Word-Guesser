@@ -31,6 +31,15 @@
             <Grid>
                 <Border BorderBrush="Gray" BorderThickness="4" Margin="84,54,84,54">
                     <Grid x:Name="PlayerInitContainerGrid" Background="LightGray">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Margin="161, 88, 161, 88"></Grid>
                     </Grid>
                 </Border>
             </Grid>
