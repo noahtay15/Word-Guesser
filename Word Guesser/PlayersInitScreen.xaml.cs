@@ -20,8 +20,10 @@ namespace Word_Guesser
     /// </summary>
     public partial class PlayersInitScreen : Page
     {
+        private int numPlayers;
         public PlayersInitScreen(int numPlayers)
         {
+            this.numPlayers = numPlayers;
             InitializeComponent();
             if (numPlayers > 0 && numPlayers < 5)
             {
@@ -33,39 +35,6 @@ namespace Word_Guesser
 
             }
 
-
-            /**
-            if (numPlayers == 1)
-            {
-                //createPlayerInitBox("Player 1", 161, 88, 161, 88, PlayerInitContainerGrid);//middle
-                createPlayerInitBoxes(1, PlayerInitContainerGrid);
-            }
-            else if(numPlayers == 2)
-            {
-                //createPlayerInitBox("Player 1", 10, 88, 213, 88, PlayerInitContainerGrid); //middle left
-                //createPlayerInitBox("Player 2", 312, 88, 10, 88, PlayerInitContainerGrid); //middle right
-                createPlayerInitBoxes(2, PlayerInitContainerGrid);
-            }
-            else if(numPlayers == 3)
-            {
-                //createPlayerInitBox("Player 1", 10, 10, 312, 167, PlayerInitContainerGrid); //top left
-                //createPlayerInitBox("Player 2", 10, 167, 312, 10, PlayerInitContainerGrid); //top right
-                //createPlayerInitBox("Player 3", 161, 166, 161, 10, PlayerInitContainerGrid); //bottom middle
-                createPlayerInitBoxes(3, PlayerInitContainerGrid);
-            }
-            else if(numPlayers == 4)
-            {
-                //createPlayerInitBox("Player 1", 10, 10, 312, 167, PlayerInitContainerGrid); //top left
-                //createPlayerInitBox("Player 2", 10, 10, 312, 10, PlayerInitContainerGrid); //top right
-                //createPlayerInitBox("Player 3", 312, 10, 167, 10, PlayerInitContainerGrid); //bottom left
-                //createPlayerInitBox("Player 4", 312, 167, 10, 10, PlayerInitContainerGrid); //bottom right
-                createPlayerInitBoxes(4, PlayerInitContainerGrid);
-            }
-            else
-            {
-                throw new Exception("Invalid input. Congrats, you shouldn't have been able to get here, yet here you are.");
-            }*/
-
         }
 
         //creates the player initialization boxes. Calls other methods to fill the contents
@@ -76,10 +45,19 @@ namespace Word_Guesser
             {
                 Grid player1 = new Grid();//player 1 PlayerInitBox
 
+                parentGrid.RowDefinitions.Add(new RowDefinition());
+                parentGrid.RowDefinitions.Add(new RowDefinition());
+                parentGrid.RowDefinitions.Add(new RowDefinition());
+                parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
+                parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
+                parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
+
                 fillOutPlayerInitBox(1, player1); //put the stuff in the init box
 
+                Grid.SetRow(player1, 1);
+                Grid.SetColumn(player1, 1);
+
                 parentGrid.Children.Add(player1); //put player1 into parentGrid with correct margins
-                player1.Margin = new Thickness(161, 88, 161, 88);
             }
             else if (number == 2)
             {
@@ -92,10 +70,11 @@ namespace Word_Guesser
                 Grid player1 = new Grid();
                 Grid player2 = new Grid();
 
-                player1 = fillOutPlayerInitBox(1, player1);
-                player2 = fillOutPlayerInitBox(2, player2);
+                fillOutPlayerInitBox(1, player1);
+                fillOutPlayerInitBox(2, player2);
 
                 //put the boxes into the correct cells
+
                 Grid.SetRow(player1, 1);
                 Grid.SetColumn(player1, 0);
 
@@ -113,7 +92,6 @@ namespace Word_Guesser
                 parentGrid.RowDefinitions.Add(new RowDefinition());
                 parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
                 parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
-                parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
 
                 Grid player1 = new Grid();
                 Grid player2 = new Grid();
@@ -128,10 +106,10 @@ namespace Word_Guesser
                 Grid.SetColumn(player1, 0);
 
                 Grid.SetRow(player2, 0);
-                Grid.SetColumn(player2, 2);
+                Grid.SetColumn(player2, 1);
 
                 Grid.SetRow(player3 , 1);
-                Grid.SetColumn(player3, 2);
+                Grid.SetColumn(player3, 0);
 
                 //add playerinitboxes to parentgrid children
                 parentGrid.Children.Add(player1);
@@ -178,18 +156,12 @@ namespace Word_Guesser
         } 
 
         //gives the playerinitbox its contents
-        public Grid fillOutPlayerInitBox(int playerNum, Grid grid)
+        public void fillOutPlayerInitBox(int playerNum, Grid grid)
         {
             //create playerinitbox contents
-            //assign them to the correct cells
 
-            grid.RowDefinitions.Add(new RowDefinition());
-            grid.RowDefinitions.Add(new RowDefinition());
-            grid.RowDefinitions.Add(new RowDefinition());
-            grid.ColumnDefinitions.Add(new ColumnDefinition());
-            grid.ColumnDefinitions.Add(new ColumnDefinition());
-            grid.ColumnDefinitions.Add(new ColumnDefinition());
-
+            grid.Width = 250;
+            grid.Height = 200;
 
             //give the box a title. EX: Player 1
             TextBlock playerText = new TextBlock();
@@ -198,7 +170,8 @@ namespace Word_Guesser
             playerText.VerticalAlignment = VerticalAlignment.Center;
             playerText.TextWrapping = TextWrapping.Wrap;
             playerText.Width = 84;
-            playerText.Height = 24;
+            playerText.Height = 28;
+            playerText.Margin = new Thickness(0, -150, 0, 0); //Good
             playerText.FontSize = 20;
             playerText.Effect = new DropShadowEffect
             {
@@ -213,39 +186,63 @@ namespace Word_Guesser
             TextBlock nameText = new TextBlock();
             nameText.Text = "Name:";
             nameText.FontSize = 15;
+            nameText.Margin = new Thickness(0, 40, 0, 0); //Good
 
             //Text Box
             TextBox textBox = new TextBox();
+            textBox.FontSize = 10;
+            textBox.Height = 15;
+            textBox.Margin = new Thickness(50, -95, 50, 0); //Good
 
             //Color
             TextBlock colorText = new TextBlock();
             colorText.Text = "Color:";
             colorText.FontSize = 15;
+            colorText.Margin = new Thickness(0, 80, 0, 0); //Good
 
             //Color Picker
+            ComboBox colorPicker = new ComboBox();
+            colorPicker.SelectedIndex = 0;
 
-            //put them in the right cells
-            Grid.SetRow(playerText, 0);
-            Grid.SetColumn(playerText, 1);
+            DataTemplate itemTemplate = new DataTemplate();
+            ComboBoxItem blue = new ComboBoxItem();
+            blue.Content = "Blue";
+            blue.Tag = "Blue";
+            ComboBoxItem green = new ComboBoxItem();
+            green.Content = "Green";
+            green.Tag = "Green";
+            ComboBoxItem red = new ComboBoxItem();
+            red.Content = "Red";
+            red.Tag = "Red";
+            ComboBoxItem purple = new ComboBoxItem();
+            purple.Content = "Purple";
+            purple.Tag = "Purple";
+            ComboBoxItem orange = new ComboBoxItem();
+            orange.Content = "Orange";
+            orange.Tag = "Orange";
+            ComboBoxItem yellow = new ComboBoxItem();
+            yellow.Content = "Yellow";
+            yellow.Tag = "Yellow";
+            ComboBoxItem pink = new ComboBoxItem();
+            pink.Content = "Pink";
+            pink.Tag = "Pink";
 
-            Grid.SetRow(nameText, 1);
-            Grid.SetColumn(nameText, 0);
-
-            Grid.SetRow(textBox, 1);
-            Grid.SetColumn(textBox, 2);
-
-            Grid.SetRow(colorText, 2);
-            Grid.SetColumn(colorText, 0);
-
+            colorPicker.Items.Add(blue);
+            colorPicker.Items.Add(green);
+            colorPicker.Items.Add(red);
+            colorPicker.Items.Add(purple);
+            colorPicker.Items.Add(orange);
+            colorPicker.Items.Add(yellow);
+            colorPicker.Items.Add(pink);
+            colorPicker.Margin = new Thickness(50, 80, 135, 100); //Good
+            colorPicker.ItemTemplate = itemTemplate;
 
             //add children
             grid.Children.Add(playerText);
             grid.Children.Add(nameText);
             grid.Children.Add(colorText);
             grid.Children.Add(textBox);
-
-
-            return grid;
+            grid.Children.Add(colorPicker);
         }
 
         private void BackToPlayerNumberButton_Click(object sender, RoutedEventArgs e)
@@ -269,6 +266,32 @@ namespace Word_Guesser
             ellipse?.SetValue(Shape.StrokeProperty, Brushes.Black);
 
             ContentPresenter? contentPresenter = BackToPlayerNumberButton.Template.FindName("BackToPlayerNumberButtonContentPresenter", BackToPlayerNumberButton) as ContentPresenter;
+            contentPresenter?.SetValue(Control.ForegroundProperty, Brushes.Black);
+        }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            //not done
+
+            MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow?.MainFrame.Navigate(new QuestionsScreen(numPlayers));
+        }
+
+        private void SubmitButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Ellipse? ellipse = SubmitButton.Template.FindName("SubmitButtonEllipse", SubmitButton) as Ellipse;
+            ellipse?.SetValue(Shape.StrokeProperty, Brushes.White);
+
+            ContentPresenter? contentPresenter = SubmitButton.Template.FindName("SubmitButtonContentPresenter", SubmitButton) as ContentPresenter;
+            contentPresenter?.SetValue(Control.ForegroundProperty, Brushes.White);
+        }
+
+        private void SubmitButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Ellipse? ellipse = SubmitButton.Template.FindName("SubmitButtonEllipse", SubmitButton) as Ellipse;
+            ellipse?.SetValue(Shape.StrokeProperty, Brushes.Black);
+
+            ContentPresenter? contentPresenter = SubmitButton.Template.FindName("SubmitButtonContentPresenter", SubmitButton) as ContentPresenter;
             contentPresenter?.SetValue(Control.ForegroundProperty, Brushes.Black);
         }
     }

@@ -15,27 +15,28 @@ PlayerNumberScreen:
 PlayersInitScreen:
 - Need to work on margins for the PlayerInitBoxes inside the container grid, as well as the margins for the contents of the PlayerInitBoxes
 	1: 
-- Box not centerred
-- Player1 test is getting cut off on its bottom
-- text box is really small and off to the right side of the grid
+- Text box too tall
+- Name, Color, and textbox need to be moved closer together
+- Title text of init box(es) is cut off at the bottom
 
 	2:
-- Both boxes seem to be shifted to the bottom left
-- Both Player texts are getting cut off at the bottom
-- Player 1 textbox is too far right
-- Player 2 tet box is small
+- Title text of init box(es) is cut off at the bottom
+- Name, Color, and textbox need to be moved closer together
+- Margins need to be adjusted to move the init boxes a little farther away 
+	from one another
+- Name, Color, and textbox need to be moved closer together
 
 	3:
-- Player 1 text box is too tall and shifted to the right
-- Player 2 init box is being smooshed from the sides as well as the text box being too tall
-- Player 3 init box is being smoosehd from the sides
+- Title text of init box(es) is cut off at the bottom and the left
+- Name, Color, and textbox need to be moved closer together
+- Text boxes are too tall and not wide enough
 
 	4:
-- All 4 init boxes are shifted up to the right
-- Player 1 text box too tall as well as shifted to the right
-- Player 2 text box too tall as well ash smooshed from the sides
-- Player 3 text box is shifted to the right
-- Player 4 text bos shifted to the right and smooshed form both sides
+- Title text of init box(es) is cut off at the bottom and the left
+- Name, Color, and textbox need to be moved closer together
+- Text boxes are too tall and not wide enough
+- Margins need to be adjusted to move the init boxes a little farther away 
+	from one another
 
 
                 //playerText.Margin = new Thickness(0, -125, 0, 0);

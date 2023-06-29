@@ -31,15 +31,6 @@
             <Grid>
                 <Border BorderBrush="Gray" BorderThickness="4" Margin="84,54,84,54">
                     <Grid x:Name="PlayerInitContainerGrid" Background="LightGray">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Margin="161, 88, 161, 88"></Grid>
                     </Grid>
                 </Border>
             </Grid>
@@ -59,6 +50,26 @@
                         <Grid>
                             <Ellipse x:Name="BackToPlayerNumberButtonEllipse" Fill="LightBlue" Width="60" Height="30" Stroke="Black" StrokeThickness="4"/>
                             <ContentPresenter x:Name="BackToPlayerNumberButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Name="SubmitButton"
+            Content="Submit" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Bottom" 
+            Height="33" 
+            Width="60"
+            Cursor="Hand"
+            Click="SubmitButton_Click" 
+            Margin="730,0,0,6"
+            MouseEnter="SubmitButton_MouseEnter"
+            MouseLeave="SubmitButton_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse x:Name="SubmitButtonEllipse" Fill="LightBlue" Width="60" Height="30" Stroke="Black" StrokeThickness="4"/>
+                            <ContentPresenter x:Name="SubmitButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
                     </ControlTemplate>
                 </Button.Template>

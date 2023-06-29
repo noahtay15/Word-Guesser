@@ -19,9 +19,24 @@ namespace Word_Guesser
     /// </summary>
     public partial class QuestionsScreen : Page
     {
-        public QuestionsScreen()
+        public QuestionsScreen(int numPlayers)
         {
             InitializeComponent();
+        }
+
+        private void BackToPlayerInitButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackToPlayerInitButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void BackToPlayerInitButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

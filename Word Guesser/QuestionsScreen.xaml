@@ -5,8 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Word_Guesser"
         mc:Ignorable="d"
-        Title="QuestionsScreen" Height="450" Width="800">
+        Title="QuestionsScreen" Background="#002">
     <Grid>
-        
+        <Grid Margin="28,30,28,92" x:Name="QuestionBoxGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <Grid Margin="0,363,0,0" x:Name="PlayerPodiumGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <Button Name="BackToPlayerInitButton"
+            Content="Back" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Bottom" 
+            Height="33" 
+            Width="60"
+            Cursor="Hand"
+            Click="BackToPlayerInitButton_Click" 
+            Margin="10,0,0,6"
+            MouseEnter="BackToPlayerInitButton_MouseEnter"
+            MouseLeave="BackToPlayerInitButton_MouseLeave">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse x:Name="BackToPlayerNumberButtonEllipse" Fill="LightBlue" Width="60" Height="30" Stroke="Black" StrokeThickness="4"/>
+                        <ContentPresenter x:Name="BackToPlayerNumberButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </Page>
