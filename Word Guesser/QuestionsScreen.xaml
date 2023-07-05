@@ -22,6 +22,19 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
+			<Border Grid.Row="0" Grid.Column="0" CornerRadius="10" Background="Gray" >
+				<TextBlock Text="Category" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+					
+				</TextBlock>
+			</Border>
+
+			<Button Grid.Row="1" Grid.Column="0" Width="Auto" Height="Auto" Background="LightBlue" Content="Click Me">
+				<Button.Resources>
+					<Style TargetType="Border">
+						<Setter Property="CornerRadius" Value="5"/>
+					</Style>
+				</Button.Resources>
+			</Button>
         </Grid>
         <Grid Margin="0,363,0,0" x:Name="PlayerPodiumGrid">
             <Grid.ColumnDefinitions>
@@ -45,8 +58,8 @@
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Grid>
-                        <Ellipse x:Name="BackToPlayerNumberButtonEllipse" Fill="LightBlue" Width="60" Height="30" Stroke="Black" StrokeThickness="4"/>
-                        <ContentPresenter x:Name="BackToPlayerNumberButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Ellipse x:Name="BackToPlayerInitButtonEllipse" Fill="LightBlue" Width="60" Height="30" Stroke="Black" StrokeThickness="4"/>
+                        <ContentPresenter x:Name="BackToPlayerInitButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>

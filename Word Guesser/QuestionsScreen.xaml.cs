@@ -26,17 +26,27 @@ namespace Word_Guesser
 
         private void BackToPlayerInitButton_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow?.MainFrame.NavigationService?.GoBack();
 
         }
 
         private void BackToPlayerInitButton_MouseEnter(object sender, MouseEventArgs e)
         {
+            Ellipse? ellipse = BackToPlayerInitButton.Template.FindName("BackToPlayerInitButtonEllipse", BackToPlayerInitButton) as Ellipse;
+            ellipse?.SetValue(Shape.StrokeProperty, Brushes.White);
 
+            ContentPresenter? contentPresenter = BackToPlayerInitButton.Template.FindName("BackToPlayerInitButtonContentPresenter", BackToPlayerInitButton) as ContentPresenter;
+            contentPresenter?.SetValue(Control.ForegroundProperty, Brushes.White);
         }
 
         private void BackToPlayerInitButton_MouseLeave(object sender, MouseEventArgs e)
         {
+            Ellipse? ellipse = BackToPlayerInitButton.Template.FindName("BackToPlayerInitButtonEllipse", BackToPlayerInitButton) as Ellipse;
+            ellipse?.SetValue(Shape.StrokeProperty, Brushes.Black);
 
+            ContentPresenter? contentPresenter = BackToPlayerInitButton.Template.FindName("BackToPlayerInitButtonContentPresenter", BackToPlayerInitButton) as ContentPresenter;
+            contentPresenter?.SetValue(Control.ForegroundProperty, Brushes.Black);
         }
     }
 }

@@ -247,8 +247,8 @@ namespace Word_Guesser
 
         private void BackToPlayerNumberButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
-            mainWindow?.MainFrame.Navigate(new PlayerNumberScreen());
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow?.MainFrame.NavigationService?.GoBack();
         }
 
         private void BackToPlayerNumberButton_MouseEnter(object sender, MouseEventArgs e)

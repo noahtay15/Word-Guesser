@@ -8,3 +8,8 @@ pineapple
 peach
 kiwi
 blue berry
+cherry
+lemon
+coconut
+plum
+watermelon

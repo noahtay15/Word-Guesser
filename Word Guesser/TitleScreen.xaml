@@ -9,7 +9,7 @@
         Background="#004">
     <Viewbox Stretch="Uniform">
         <Grid x:Name="TitleScreenGrid" Visibility="Visible" Width="186">
-            <Grid x:Name="TitleGrid" Grid.RowSpan="3">
+            <Grid x:Name="TitleGrid">
                 <Grid.Resources>
                     <Geometry x:Key="CustomShape">
                         M10,0 L30,0 L40,10 L40,30 L30,40 L10,40 L0,30 L0,10 Z
@@ -22,7 +22,7 @@
                         <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="5" Opacity="1" />
                     </TextBlock.Effect>
                     <TextBlock.Foreground>
-                        <SolidColorBrush Color="LightBlue" />
+                        <SolidColorBrush Color="LightBlue"/>
                     </TextBlock.Foreground>
                 </TextBlock>
             </Border>
