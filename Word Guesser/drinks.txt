@@ -8,3 +8,8 @@ Dr. Pepper
 Pepsi
 Lemonade
 Hot Chocolate
+Orange Juice
+Sprite
+Root Beer
+Gatorade 
+Red Bull

@@ -48,5 +48,17 @@ namespace Word_Guesser
             ContentPresenter? contentPresenter = BackToPlayerInitButton.Template.FindName("BackToPlayerInitButtonContentPresenter", BackToPlayerInitButton) as ContentPresenter;
             contentPresenter?.SetValue(Control.ForegroundProperty, Brushes.Black);
         }
+
+        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Button button = (Button)sender;
+            button.BorderBrush = Brushes.LightBlue;
+        }
+
+        private void Button_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Button button = (Button)sender;
+            button.BorderBrush = Brushes.Blue;
+        }
     }
 }

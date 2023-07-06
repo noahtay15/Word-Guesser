@@ -8,3 +8,8 @@ Washington D.C.
 Orlando
 Oak Ridge
 Huntsville
+Los Angeles
+Chicago
+Honolulu
+Charleston
+San Francisco

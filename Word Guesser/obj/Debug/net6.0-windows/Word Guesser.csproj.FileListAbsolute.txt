@@ -97,3 +97,36 @@ C:\Users\Noaht\Source\Repos\noahtay15\Word-Guesser\Word Guesser\obj\Debug\net6.0
 C:\Users\Noaht\Source\Repos\noahtay15\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\Word Guesser.csproj.CoreCompileInputs.cache
 C:\Users\Noaht\Source\Repos\noahtay15\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\Word Guesser.genruntimeconfig.cache
 C:\Users\Noaht\Source\Repos\noahtay15\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\ref\Word Guesser.dll
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\bin\Debug\net6.0-windows\Word Guesser.exe
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\bin\Debug\net6.0-windows\Word Guesser.deps.json
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\bin\Debug\net6.0-windows\Word Guesser.runtimeconfig.json
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\bin\Debug\net6.0-windows\Word Guesser.dll
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\bin\Debug\net6.0-windows\Word Guesser.pdb
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\Word Guesser.csproj.AssemblyReference.cache
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\AnsweringScreen.g.cs
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\PlayerNumberScreen.g.cs
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\PlayersInitScreen.g.cs
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\QuestionsScreen.g.cs
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\TitleScreen.g.cs
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\WinnerScreen.g.cs
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\Word Guesser_MarkupCompile.cache
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\Word Guesser_MarkupCompile.lref
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\AnsweringScreen.baml
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\PlayerNumberScreen.baml
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\PlayersInitScreen.baml
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\QuestionsScreen.baml
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\TitleScreen.baml
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\WinnerScreen.baml
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\Word Guesser.g.resources
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\Word Guesser.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\Word Guesser.AssemblyInfoInputs.cache
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\Word Guesser.AssemblyInfo.cs
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\Word Guesser.csproj.CoreCompileInputs.cache
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\Word Guesser.dll
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\refint\Word Guesser.dll
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\Word Guesser.pdb
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\Word Guesser.genruntimeconfig.cache
+C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\obj\Debug\net6.0-windows\ref\Word Guesser.dll

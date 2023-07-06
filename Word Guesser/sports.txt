@@ -8,3 +8,8 @@ Cricket
 Boxing
 Tennis
 Golf
+Swimming
+Boxing
+Wrestling
+Cycling
+Hockey

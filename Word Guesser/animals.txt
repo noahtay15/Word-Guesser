@@ -8,3 +8,8 @@ Wolf
 Bear
 Giraffe
 Snake
+Elephant
+Dolphin
+Penguin
+Gorilla
+Octopus
