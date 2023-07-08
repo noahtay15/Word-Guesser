@@ -272,6 +272,7 @@ namespace Word_Guesser
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             //not done
+            //need to do user input checking and then send that stuff to instantiate player objects
 
             MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
             mainWindow?.MainFrame.Navigate(new QuestionsScreen(numPlayers));

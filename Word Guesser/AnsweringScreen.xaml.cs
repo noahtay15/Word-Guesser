@@ -17,7 +17,7 @@ namespace Word_Guesser
     /// <summary>
     /// Interaction logic for AnsweringScreen.xaml
     /// </summary>
-    public partial class AnsweringScreen : Window
+    public partial class AnsweringScreen : Page
     {
         public AnsweringScreen()
         {

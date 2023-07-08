@@ -52,10 +52,8 @@
             VerticalAlignment="Bottom" 
             Height="26" 
             Width="51"
-            Cursor="Hand"
-            Click="BackToPlayerInitButton_Click"
-            MouseEnter="BackToPlayerInitButton_MouseEnter"
-            MouseLeave="BackToPlayerInitButton_MouseLeave" Margin="365,0,0,-9">
+            Cursor="Hand" 
+                Margin="365,0,0,-9">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Grid>

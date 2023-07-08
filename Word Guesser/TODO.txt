@@ -1,7 +1,5 @@
 ﻿
 General:
-- Put this in a GitHub repository
-- Figure out how to get VS to connect to the GitHub repository
 
 
 MainWindow:
@@ -13,47 +11,10 @@ Player:
 PlayerNumberScreen:
 
 PlayersInitScreen:
-- Need to work on margins for the PlayerInitBoxes inside the container grid, as well as the margins for the contents of the PlayerInitBoxes
-	1: 
-- Text box too tall
-- Name, Color, and textbox need to be moved closer together
-- Title text of init box(es) is cut off at the bottom
-
-	2:
-- Title text of init box(es) is cut off at the bottom
-- Name, Color, and textbox need to be moved closer together
-- Margins need to be adjusted to move the init boxes a little farther away 
-	from one another
-- Name, Color, and textbox need to be moved closer together
-
-	3:
-- Title text of init box(es) is cut off at the bottom and the left
-- Name, Color, and textbox need to be moved closer together
-- Text boxes are too tall and not wide enough
-
-	4:
-- Title text of init box(es) is cut off at the bottom and the left
-- Name, Color, and textbox need to be moved closer together
-- Text boxes are too tall and not wide enough
-- Margins need to be adjusted to move the init boxes a little farther away 
-	from one another
-
-
-                //playerText.Margin = new Thickness(0, -125, 0, 0);
-
-
-                //nameText.Margin = new Thickness(65, 46, 194, 92);
-
-
-                //textBox.Margin = new Thickness(126, 45, 21, 91);
-
-
-                //colorText.Margin = new Thickness(65, 79, 194, 59);
-
-
+- finish SubmitButton_Click. Details in comments of that event handler
 
 QuestionsScreen:
--All of it
+- Create the constructor and move all necessary stuff into that
 
 TitleScreen:
 -May come back after completing everything and touch up the xaml
