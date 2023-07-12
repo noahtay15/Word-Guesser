@@ -35,16 +35,16 @@
                 </Border>
             </Grid>
             <Button Name="BackToPlayerNumberButton"
-            Content="Back" 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Bottom" 
-            Height="33" 
-            Width="60"
-            Cursor="Hand"
-            Click="BackToPlayerNumberButton_Click" 
-            Margin="10,0,0,6"
-            MouseEnter="BackToPlayerNumberButton_MouseEnter"
-            MouseLeave="BackToPlayerNumberButton_MouseLeave">
+                Content="Back" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Bottom" 
+                Height="33" 
+                Width="60"
+                Cursor="Hand"
+                Click="BackToPlayerNumberButton_Click" 
+                Margin="10,0,0,6"
+                MouseEnter="BackToPlayerNumberButton_MouseEnter"
+                MouseLeave="BackToPlayerNumberButton_MouseLeave">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Grid>
@@ -54,17 +54,18 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button Name="SubmitButton"
-            Content="Submit" 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Bottom" 
-            Height="33" 
-            Width="60"
-            Cursor="Hand"
-            Click="SubmitButton_Click" 
-            Margin="730,0,0,6"
-            MouseEnter="SubmitButton_MouseEnter"
-            MouseLeave="SubmitButton_MouseLeave">
+            <Button x:Name ="SubmitButton"
+                Content="Submit" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Bottom" 
+                Height="33" 
+                Width="60"
+                Cursor="Hand"
+                Click="SubmitButton_Click" 
+                Margin="730,0,0,6"
+                MouseEnter="SubmitButton_MouseEnter"
+                MouseLeave="SubmitButton_MouseLeave" 
+                IsEnabled="False">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Grid>

@@ -85,5 +85,10 @@ namespace Word_Guesser
             mainWindow?.MainFrame.Navigate(new AnsweringScreen());
         }
 
+        private void BackToPlayerInitButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow?.MainFrame.NavigationService?.GoBack();
+        }
     }
 }

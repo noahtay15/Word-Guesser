@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,6 +22,7 @@ namespace Word_Guesser
     public partial class PlayersInitScreen : Page
     {
         private int numPlayers;
+        private bool[] areAllInputsValid = new bool[4];
         public PlayersInitScreen(int numPlayers)
         {
             this.numPlayers = numPlayers;
@@ -28,22 +30,105 @@ namespace Word_Guesser
             if (numPlayers > 0 && numPlayers < 5)
             {
                 createPlayerInitBoxes(numPlayers, PlayerInitContainerGrid);
+                /** This will replace all of the if statement
+                 * Grid parentGrid = PlayerInitContainerGrid;
+                 * 
+                 * if(numPlayers == 1)
+                 * {
+                 *      parentGrid.RowDefinitions.Add(new RowDefinition());
+                        parentGrid.RowDefinitions.Add(new RowDefinition());
+                        parentGrid.RowDefinitions.Add(new RowDefinition());
+                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
+                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
+                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
+
+                        PlayerInitBox player1InitBox = new PlayerInitBox(parentGrid, "1");
+
+                        Grid.SetRow(player1InitBox, 1);
+                        Grid.SetColumn(player1InitBox, 1);
+                 * }
+                 * else if(numPlayers == 2)
+                 * {
+                 *      parentGrid.RowDefinitions.Add(new RowDefinition());
+                        parentGrid.RowDefinitions.Add(new RowDefinition());
+                        parentGrid.RowDefinitions.Add(new RowDefinition());
+                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
+                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
+
+                        PlayerInitBox player1InitBox = new PlayerInitBox(parentGrid, "1");
+                 *      PlayerInitBox player2InitBox = new PlayerInitBox(parentGrid, "2");
+
+                        Grid.SetRow(player1InitBox, 1);
+                        Grid.SetColumn(player1InitBox, 0);
+
+                        Grid.SetRow(player2InitBox, 1);
+                        Grid.SetColumn(player2InitBox, 1);
+                 * }
+                 * else if(numPlayers == 3)
+                 * {
+                 *      parentGrid.RowDefinitions.Add(new RowDefinition());
+                        parentGrid.RowDefinitions.Add(new RowDefinition());
+                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
+                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
+
+                        PlayerInitBox player1InitBox = new PlayerInitBox(parentGrid, "1");
+                 *      PlayerInitBox player2InitBox = new PlayerInitBox(parentGrid, "2");
+                 *      PlayerInitBox player3InitBox = new PlayerInitBox(parentGrid, "3");
+
+                        Grid.SetRow(player1, 0);
+                        Grid.SetColumn(player1, 0);
+
+                        Grid.SetRow(player2, 0);
+                        Grid.SetColumn(player2, 1);
+
+                        Grid.SetRow(player3 , 1);
+                        Grid.SetColumn(player3, 0);
+                 *      
+                 * }
+                 * else if(numPlayers == 4)
+                 * {
+                 *      parentGrid.RowDefinitions.Add(new RowDefinition());
+                        parentGrid.RowDefinitions.Add(new RowDefinition());
+                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
+                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
+
+                        PlayerInitBox player1InitBox = new PlayerInitBox(parentGrid, "1");
+                 *      PlayerInitBox player2InitBox = new PlayerInitBox(parentGrid, "2");
+                 *      PlayerInitBox player3InitBox = new PlayerInitBox(parentGrid, "3");
+                 *      PlayerInitBox player4InitBox = new PlayerInitBox(parentGrid, "4");
+
+                        Grid.SetRow(player1, 0);
+                        Grid.SetColumn(player1, 0);
+
+                        Grid.SetRow(player2, 0);
+                        Grid.SetColumn(player2, 1);
+
+                        Grid.SetRow(player3, 1);
+                        Grid.SetColumn(player3, 0);
+
+                        Grid.SetRow(player4 , 1);
+                        Grid.SetColumn(player4, 1);
+                 * }
+                 * else
+                 * {
+                 *      throw new Exception("Invalid input. Congrats, you shouldn't have been able to get here, yet here you are.");
+                 * }
+                 */
             }
             else
             {
                 throw new Exception("Invalid input. Congrats, you shouldn't have been able to get here, yet here you are.");
-
             }
-
         }
 
         //creates the player initialization boxes. Calls other methods to fill the contents
         public void createPlayerInitBoxes(int number, Grid parentGrid)
         {
+            this.numPlayers = number;
 
             if (number == 1)
             {
-                Grid player1 = new Grid();//player 1 PlayerInitBox
+                PlayerInitBox player1 = new PlayerInitBox(parentGrid, 1);//player 1 PlayerInitBox
 
                 parentGrid.RowDefinitions.Add(new RowDefinition());
                 parentGrid.RowDefinitions.Add(new RowDefinition());
@@ -52,12 +137,14 @@ namespace Word_Guesser
                 parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
                 parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
 
-                fillOutPlayerInitBox(1, player1); //put the stuff in the init box
+                //fillOutPlayerInitBox(1, player1); //put the stuff in the init box
 
                 Grid.SetRow(player1, 1);
                 Grid.SetColumn(player1, 1);
 
-                parentGrid.Children.Add(player1); //put player1 into parentGrid with correct margins
+                player1.ValidationPassed += PlayerInitBox_ValidationPassed;
+                player1.ValidationFailed += PlayerInitBox_ValidationFailed;
+                player1.ButtonEnabler += ButtonEnabler;
             }
             else if (number == 2)
             {
@@ -67,11 +154,11 @@ namespace Word_Guesser
                 parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
                 parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
 
-                Grid player1 = new Grid();
-                Grid player2 = new Grid();
+                PlayerInitBox player1 = new PlayerInitBox(parentGrid, 1);
+                PlayerInitBox player2 = new PlayerInitBox(parentGrid, 2);
 
-                fillOutPlayerInitBox(1, player1);
-                fillOutPlayerInitBox(2, player2);
+                //fillOutPlayerInitBox(1, player1);
+                //fillOutPlayerInitBox(2, player2);
 
                 //put the boxes into the correct cells
 
@@ -81,9 +168,16 @@ namespace Word_Guesser
                 Grid.SetRow(player2, 1);
                 Grid.SetColumn(player2, 1);
 
+                player1.ValidationPassed += PlayerInitBox_ValidationPassed;
+                player1.ValidationFailed += PlayerInitBox_ValidationFailed;
+                player1.ButtonEnabler += ButtonEnabler;
+                player2.ValidationPassed += PlayerInitBox_ValidationPassed;
+                player2.ValidationFailed += PlayerInitBox_ValidationFailed;
+                player2.ButtonEnabler += ButtonEnabler;
+
                 //add playerinitboxes to parentgrid children
-                parentGrid.Children.Add(player1);
-                parentGrid.Children.Add(player2);
+                //parentGrid.Children.Add(player1);
+                //parentGrid.Children.Add(player2);
 
             }
             else if (number == 3)
@@ -93,13 +187,13 @@ namespace Word_Guesser
                 parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
                 parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
 
-                Grid player1 = new Grid();
-                Grid player2 = new Grid();
-                Grid player3 = new Grid();
+                PlayerInitBox player1 = new PlayerInitBox(parentGrid, 1);
+                PlayerInitBox player2 = new PlayerInitBox(parentGrid, 2);
+                PlayerInitBox player3 = new PlayerInitBox(parentGrid, 3);
 
-                fillOutPlayerInitBox(1, player1);
-                fillOutPlayerInitBox(2, player2);
-                fillOutPlayerInitBox(3, player3);
+                //fillOutPlayerInitBox(1, player1);
+                //fillOutPlayerInitBox(2, player2);
+                //fillOutPlayerInitBox(3, player3);
 
                 //put the boxes into the correct cells
                 Grid.SetRow(player1, 0);
@@ -111,10 +205,20 @@ namespace Word_Guesser
                 Grid.SetRow(player3 , 1);
                 Grid.SetColumn(player3, 0);
 
+                player1.ValidationPassed += PlayerInitBox_ValidationPassed;
+                player1.ValidationFailed += PlayerInitBox_ValidationFailed;
+                player1.ButtonEnabler += ButtonEnabler;
+                player2.ValidationPassed += PlayerInitBox_ValidationPassed;
+                player2.ValidationFailed += PlayerInitBox_ValidationFailed;
+                player2.ButtonEnabler += ButtonEnabler;
+                player3.ValidationPassed += PlayerInitBox_ValidationPassed;
+                player3.ValidationFailed += PlayerInitBox_ValidationFailed;
+                player3.ButtonEnabler += ButtonEnabler;
+
                 //add playerinitboxes to parentgrid children
-                parentGrid.Children.Add(player1);
-                parentGrid.Children.Add(player2);
-                parentGrid.Children.Add(player3);
+                //parentGrid.Children.Add(player1);
+                //parentGrid.Children.Add(player2);
+                //parentGrid.Children.Add(player3);
             }
             else
             {
@@ -123,15 +227,10 @@ namespace Word_Guesser
                 parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
                 parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
 
-                Grid player1 = new Grid();
-                Grid player2 = new Grid();
-                Grid player3 = new Grid();
-                Grid player4 = new Grid();
-
-                fillOutPlayerInitBox(1, player1);
-                fillOutPlayerInitBox(2, player2);
-                fillOutPlayerInitBox(3, player3);
-                fillOutPlayerInitBox(3, player4);
+                PlayerInitBox player1 = new PlayerInitBox(parentGrid, 1);
+                PlayerInitBox player2 = new PlayerInitBox(parentGrid, 2);
+                PlayerInitBox player3 = new PlayerInitBox(parentGrid, 3);
+                PlayerInitBox player4 = new PlayerInitBox(parentGrid, 4);
 
                 //put the boxes into the correct cells
                 Grid.SetRow(player1, 0);
@@ -146,108 +245,31 @@ namespace Word_Guesser
                 Grid.SetRow(player4 , 1);
                 Grid.SetColumn(player4, 1);
 
+                player1.ValidationPassed += PlayerInitBox_ValidationPassed;
+                player1.ValidationFailed += PlayerInitBox_ValidationFailed;
+                player1.ButtonEnabler += ButtonEnabler;
+                player2.ValidationPassed += PlayerInitBox_ValidationPassed;
+                player2.ValidationFailed += PlayerInitBox_ValidationFailed;
+                player2.ButtonEnabler += ButtonEnabler;
+                player3.ValidationPassed += PlayerInitBox_ValidationPassed;
+                player3.ValidationFailed += PlayerInitBox_ValidationFailed;
+                player3.ButtonEnabler += ButtonEnabler;
+                player4.ValidationPassed += PlayerInitBox_ValidationPassed;
+                player4.ValidationFailed += PlayerInitBox_ValidationFailed;
+                player4.ButtonEnabler += ButtonEnabler;
+
                 //add playerinitboxes to parentgrid children
-                parentGrid.Children.Add(player1);
-                parentGrid.Children.Add(player2);
-                parentGrid.Children.Add(player3);
-                parentGrid.Children.Add(player4);
+                //parentGrid.Children.Add(player1);
+                //parentGrid.Children.Add(player2);
+                //parentGrid.Children.Add(player3);
+                //parentGrid.Children.Add(player4);
 
             }
         } 
 
-        //gives the playerinitbox its contents
-        public void fillOutPlayerInitBox(int playerNum, Grid grid)
-        {
-            //create playerinitbox contents
-
-            grid.Width = 250;
-            grid.Height = 200;
-
-            //give the box a title. EX: Player 1
-            TextBlock playerText = new TextBlock();
-            playerText.Text = "Player " + playerNum;
-            playerText.HorizontalAlignment = HorizontalAlignment.Center;
-            playerText.VerticalAlignment = VerticalAlignment.Center;
-            playerText.TextWrapping = TextWrapping.Wrap;
-            playerText.Width = 84;
-            playerText.Height = 28;
-            playerText.Margin = new Thickness(0, -150, 0, 0); //Good
-            playerText.FontSize = 20;
-            playerText.Effect = new DropShadowEffect
-            {
-                Color = Colors.Black,
-                ShadowDepth = 0,
-                BlurRadius = 5,
-                Opacity = 10  
-            };
-            playerText.Foreground = new SolidColorBrush(Colors.White);
-
-            //Name
-            TextBlock nameText = new TextBlock();
-            nameText.Text = "Name:";
-            nameText.FontSize = 15;
-            nameText.Margin = new Thickness(0, 40, 0, 0); //Good
-
-            //Text Box
-            TextBox textBox = new TextBox();
-            textBox.FontSize = 10;
-            textBox.Height = 15;
-            textBox.Margin = new Thickness(50, -95, 50, 0); //Good
-
-            //Color
-            TextBlock colorText = new TextBlock();
-            colorText.Text = "Color:";
-            colorText.FontSize = 15;
-            colorText.Margin = new Thickness(0, 80, 0, 0); //Good
-
-            //Color Picker
-            ComboBox colorPicker = new ComboBox();
-            colorPicker.SelectedIndex = 0;
-
-            DataTemplate itemTemplate = new DataTemplate();
-            ComboBoxItem blue = new ComboBoxItem();
-            blue.Content = "Blue";
-            blue.Tag = "Blue";
-            ComboBoxItem green = new ComboBoxItem();
-            green.Content = "Green";
-            green.Tag = "Green";
-            ComboBoxItem red = new ComboBoxItem();
-            red.Content = "Red";
-            red.Tag = "Red";
-            ComboBoxItem purple = new ComboBoxItem();
-            purple.Content = "Purple";
-            purple.Tag = "Purple";
-            ComboBoxItem orange = new ComboBoxItem();
-            orange.Content = "Orange";
-            orange.Tag = "Orange";
-            ComboBoxItem yellow = new ComboBoxItem();
-            yellow.Content = "Yellow";
-            yellow.Tag = "Yellow";
-            ComboBoxItem pink = new ComboBoxItem();
-            pink.Content = "Pink";
-            pink.Tag = "Pink";
-
-            colorPicker.Items.Add(blue);
-            colorPicker.Items.Add(green);
-            colorPicker.Items.Add(red);
-            colorPicker.Items.Add(purple);
-            colorPicker.Items.Add(orange);
-            colorPicker.Items.Add(yellow);
-            colorPicker.Items.Add(pink);
-            colorPicker.Margin = new Thickness(50, 80, 135, 100); //Good
-            colorPicker.ItemTemplate = itemTemplate;
-
-            //add children
-            grid.Children.Add(playerText);
-            grid.Children.Add(nameText);
-            grid.Children.Add(colorText);
-            grid.Children.Add(textBox);
-            grid.Children.Add(colorPicker);
-        }
-
         private void BackToPlayerNumberButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
             mainWindow?.MainFrame.NavigationService?.GoBack();
         }
 
@@ -294,6 +316,30 @@ namespace Word_Guesser
 
             ContentPresenter? contentPresenter = SubmitButton.Template.FindName("SubmitButtonContentPresenter", SubmitButton) as ContentPresenter;
             contentPresenter?.SetValue(Control.ForegroundProperty, Brushes.Black);
+        }
+        
+        private void PlayerInitBox_ValidationPassed(object sender, EventArgs e)
+        {
+            PlayerInitBox box = (PlayerInitBox)sender;
+            areAllInputsValid[box.GetPlayerNum() - 1] = true;
+        }
+
+        private void PlayerInitBox_ValidationFailed(object sender, EventArgs e)
+        {
+            PlayerInitBox box = (PlayerInitBox)sender;
+            areAllInputsValid[box.GetPlayerNum() - 1] = false;
+        }
+
+        private void ButtonEnabler(object sender, EventArgs e)
+        {
+            if(areAllInputsValid.Contains(false))
+            {
+                SubmitButton.IsEnabled = false;
+            }
+            else
+            {
+                SubmitButton.IsEnabled = true;
+            }
         }
     }
 }
