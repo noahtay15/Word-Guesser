@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Effects;
@@ -125,25 +121,34 @@ namespace Word_Guesser
         {
             this.textBox = (TextBox)sender;
             Regex alphaNumeric = new Regex("^[a-zA-Z0-9]*$");
-            if (textBox.Text.Length > 12 && !errorMessage.Text.Contains(" Name is too long."))
+            if (textBox.Text.Length > 12 && !errorMessage.Text.Contains(" Name is too long.")) //if it is too long and doesnt show length warning already
             {
                 errorMessage.Text += " Name is too long.";
                 ValidationFailed.Invoke(this, new EventArgs());
             }
-            else if (!alphaNumeric.IsMatch(textBox.Text) && !errorMessage.Text.Contains(" Alphanumeric characters only."))
+            else if (!alphaNumeric.IsMatch(textBox.Text) && !errorMessage.Text.Contains(" Alphanumeric characters only.")) //if it contains non alphanumeric and doesnt show that warning already
             {
                 errorMessage.Text += " Alphanumeric characters only.";
                 ValidationFailed.Invoke(this, new EventArgs());
             }
-            else if (textBox.Text.Length < 12 && errorMessage.Text.Contains(" Name is too long."))
+            else if (textBox.Text.Length < 12 && errorMessage.Text.Contains(" Name is too long.")) //when name is correct length and shows length warning
             {
                 errorMessage.Text = errorMessage.Text.Replace(" Name is too long.", "");
             }
-            else if (alphaNumeric.IsMatch(textBox.Text) && errorMessage.Text.Contains(" Alphanumeric characters only."))
+            else if (alphaNumeric.IsMatch(textBox.Text) && errorMessage.Text.Contains(" Alphanumeric characters only.")) //when only contains alpanumeric and shows that warning
             {
                 errorMessage.Text = errorMessage.Text.Replace(" Alphanumeric characters only.", "");
             }
-            else if (errorMessage.Text == "" && textBox.Text != "")
+            else if (textBox.Text == "" && !errorMessage.Text.Contains(" Must not be empty.")) //when empty and doesnt show empty warning
+            {
+                errorMessage.Text = " Must not be empty.";
+                ValidationFailed.Invoke(this, new EventArgs());
+            }
+            else if(textBox.Text != "" && errorMessage.Text.Contains(" Must not be empty.")) //when not empty and already shows empty warning
+            {
+                errorMessage.Text = errorMessage.Text.Replace(" Must not be empty.", "");
+            }
+            else if (errorMessage.Text == "" && textBox.Text != "" && textBox.Text != null)
             {
                 ValidationPassed.Invoke(this, new EventArgs());
             }

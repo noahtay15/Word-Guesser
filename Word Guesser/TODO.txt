@@ -12,7 +12,6 @@ PlayerNumberScreen:
 
 PlayersInitScreen:
 - finish SubmitButton_Click. Details in comments of that event handler
-- When typing in a name and then deleting it all, submit button is still enabled, needs to disable again
 
 QuestionsScreen:
 - Create the constructor and move all necessary stuff into that
