@@ -214,11 +214,6 @@ namespace Word_Guesser
                 player3.ValidationPassed += PlayerInitBox_ValidationPassed;
                 player3.ValidationFailed += PlayerInitBox_ValidationFailed;
                 player3.ButtonEnabler += ButtonEnabler;
-
-                //add playerinitboxes to parentgrid children
-                //parentGrid.Children.Add(player1);
-                //parentGrid.Children.Add(player2);
-                //parentGrid.Children.Add(player3);
             }
             else
             {
@@ -257,13 +252,6 @@ namespace Word_Guesser
                 player4.ValidationPassed += PlayerInitBox_ValidationPassed;
                 player4.ValidationFailed += PlayerInitBox_ValidationFailed;
                 player4.ButtonEnabler += ButtonEnabler;
-
-                //add playerinitboxes to parentgrid children
-                //parentGrid.Children.Add(player1);
-                //parentGrid.Children.Add(player2);
-                //parentGrid.Children.Add(player3);
-                //parentGrid.Children.Add(player4);
-
             }
         } 
 

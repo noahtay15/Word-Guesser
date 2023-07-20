@@ -85,7 +85,7 @@ namespace Word_Guesser
             ComboBoxItem pink = new ComboBoxItem();
             pink.Content = "Pink";
             pink.Tag = "Pink";
-
+            
             colorPicker.Items.Add(blue);
             colorPicker.Items.Add(green);
             colorPicker.Items.Add(red);
@@ -93,7 +93,7 @@ namespace Word_Guesser
             colorPicker.Items.Add(orange);
             colorPicker.Items.Add(yellow);
             colorPicker.Items.Add(pink);
-            colorPicker.Margin = new Thickness(50, 80, 135, 100);
+            colorPicker.Margin = new Thickness(50, 80, 100, 80);
             colorPicker.ItemTemplate = itemTemplate;
 
             //error message
@@ -131,7 +131,7 @@ namespace Word_Guesser
                 errorMessage.Text += " Alphanumeric characters only.";
                 ValidationFailed.Invoke(this, new EventArgs());
             }
-            else if (textBox.Text.Length < 12 && errorMessage.Text.Contains(" Name is too long.")) //when name is correct length and shows length warning
+            else if (textBox.Text.Length =< 12 && errorMessage.Text.Contains(" Name is too long.")) //when name is correct length and shows length warning
             {
                 errorMessage.Text = errorMessage.Text.Replace(" Name is too long.", "");
             }
