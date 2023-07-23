@@ -24,6 +24,61 @@ namespace Word_Guesser
         public QuestionsScreen(int numPlayers)
         {
             InitializeComponent();
+
+            //Creating questions container
+            Grid parentGrid = new Grid();
+            for (int i = 0; i < 5; i++)
+            {
+                parentGrid.RowDefinitions.Add(new RowDefinition()); //give parent grid 5 rows
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                parentGrid.ColumnDefinitions.Add(new ColumnDefinition()); //give parent grid 5 columns
+            }
+            parentGrid.Margin = new Thickness(28, 30, 28, 92);
+            parentGrid.Name = "QuestionBoxGrid";
+
+            //Instantiate all of the category headers
+            Border headerOne = new Border();
+            TextBlock headerOneTitle = new TextBlock();
+            headerOneTitle.Text = "Animals";
+            Grid.SetRow(headerOne, 0);
+            Grid.SetColumn(headerOne, 0);
+            parentGrid.Children.Add(headerOne);
+
+            Border headerTwo = new Border();
+            TextBlock headerTwoTitle = new TextBlock();
+            headerTwoTitle.Text = "Sports";
+            Grid.SetRow(headerTwo, 0);
+            Grid.SetColumn(headerTwo, 1);
+            parentGrid.Children.Add(headerTwo);
+
+            Border headerThree = new Border();
+            TextBlock headerThreeTitle = new TextBlock();
+            headerThreeTitle.Text = "Drinks";
+            Grid.SetRow(headerThree, 0);
+            Grid.SetColumn(headerThree, 2);
+            parentGrid.Children.Add(headerThree);
+
+            Border headerFour = new Border();
+            TextBlock headerFourTitle = new TextBlock();
+            headerFourTitle.Text = "Flowers";
+            Grid.SetRow(headerFour, 0);
+            Grid.SetColumn(headerFour, 3);
+            parentGrid.Children.Add(headerFour);
+
+            Border headerFive = new Border();
+            TextBlock headerFiveTitle = new TextBlock();
+            headerFiveTitle.Text = "Cities";
+            Grid.SetRow(headerFive, 0);
+            Grid.SetColumn(headerFive, 4);
+            parentGrid.Children.Add(headerFive);
+
+            //Instantiate all of the questions
+
+
+            //Instantiate all of the podiums
+
         }
 
         private void QuestionButton_MouseEnter(object sender, MouseEventArgs e)

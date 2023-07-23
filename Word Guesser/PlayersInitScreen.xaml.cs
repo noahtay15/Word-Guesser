@@ -22,7 +22,7 @@ namespace Word_Guesser
     public partial class PlayersInitScreen : Page
     {
         private int numPlayers;
-        private bool[] areAllInputsValid = new bool[4];
+        private bool[] areAllInputsValid;
         public PlayersInitScreen(int numPlayers)
         {
             this.numPlayers = numPlayers;
@@ -137,14 +137,14 @@ namespace Word_Guesser
                 parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
                 parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
 
-                //fillOutPlayerInitBox(1, player1); //put the stuff in the init box
-
                 Grid.SetRow(player1, 1);
                 Grid.SetColumn(player1, 1);
 
                 player1.ValidationPassed += PlayerInitBox_ValidationPassed;
                 player1.ValidationFailed += PlayerInitBox_ValidationFailed;
                 player1.ButtonEnabler += ButtonEnabler;
+
+                areAllInputsValid = new bool[1];
             }
             else if (number == 2)
             {
@@ -156,9 +156,6 @@ namespace Word_Guesser
 
                 PlayerInitBox player1 = new PlayerInitBox(parentGrid, 1);
                 PlayerInitBox player2 = new PlayerInitBox(parentGrid, 2);
-
-                //fillOutPlayerInitBox(1, player1);
-                //fillOutPlayerInitBox(2, player2);
 
                 //put the boxes into the correct cells
 
@@ -175,10 +172,7 @@ namespace Word_Guesser
                 player2.ValidationFailed += PlayerInitBox_ValidationFailed;
                 player2.ButtonEnabler += ButtonEnabler;
 
-                //add playerinitboxes to parentgrid children
-                //parentGrid.Children.Add(player1);
-                //parentGrid.Children.Add(player2);
-
+                areAllInputsValid = new bool[2];
             }
             else if (number == 3)
             {
@@ -190,10 +184,6 @@ namespace Word_Guesser
                 PlayerInitBox player1 = new PlayerInitBox(parentGrid, 1);
                 PlayerInitBox player2 = new PlayerInitBox(parentGrid, 2);
                 PlayerInitBox player3 = new PlayerInitBox(parentGrid, 3);
-
-                //fillOutPlayerInitBox(1, player1);
-                //fillOutPlayerInitBox(2, player2);
-                //fillOutPlayerInitBox(3, player3);
 
                 //put the boxes into the correct cells
                 Grid.SetRow(player1, 0);
@@ -214,6 +204,8 @@ namespace Word_Guesser
                 player3.ValidationPassed += PlayerInitBox_ValidationPassed;
                 player3.ValidationFailed += PlayerInitBox_ValidationFailed;
                 player3.ButtonEnabler += ButtonEnabler;
+
+                areAllInputsValid = new bool[3];
             }
             else
             {
@@ -252,6 +244,8 @@ namespace Word_Guesser
                 player4.ValidationPassed += PlayerInitBox_ValidationPassed;
                 player4.ValidationFailed += PlayerInitBox_ValidationFailed;
                 player4.ButtonEnabler += ButtonEnabler;
+
+                areAllInputsValid = new bool[4];
             }
         } 
 
@@ -282,7 +276,7 @@ namespace Word_Guesser
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             //not done
-            //need to do user input checking and then send that stuff to instantiate player objects
+            //need send that stuff to instantiate player objects
 
             MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
             mainWindow?.MainFrame.Navigate(new QuestionsScreen(numPlayers));
@@ -320,9 +314,9 @@ namespace Word_Guesser
 
         private void ButtonEnabler(object sender, EventArgs e)
         {
-            if(areAllInputsValid.Contains(false))
+            if(areAllInputsValid.Contains(false)) 
             {
-                SubmitButton.IsEnabled = false;
+                SubmitButton.IsEnabled = false; 
             }
             else
             {

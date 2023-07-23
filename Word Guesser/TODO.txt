@@ -13,6 +13,8 @@ PlayerNumberScreen:
 PlayersInitScreen:
 - finish SubmitButton_Click. Details in comments of that event handler
 
+PlayerInitBox:
+
 QuestionsScreen:
 - Create the constructor and move all necessary stuff into that
 

@@ -10,9 +10,9 @@ namespace Word_Guesser
     internal class Player
     {
         private String name;
-        private int points;
+        private int points = 0;
         private int position;
-        private String guess;
+        private String? guess;
         private String color;
 
         public Player(String name, String color) 
@@ -20,9 +20,6 @@ namespace Word_Guesser
            this.name = name;
            this.color = color;
         }
-
-
-
 
         //GETTERS AND SETTERS PAST HERE
 
