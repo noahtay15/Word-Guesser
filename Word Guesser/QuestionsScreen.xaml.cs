@@ -25,8 +25,15 @@ namespace Word_Guesser
         {
             InitializeComponent();
 
+            Border container = new Border();
+            container.CornerRadius = new CornerRadius(5);
+			container.Margin = new Thickness(28, 30, 28, 92);
+            container.Background = new SolidColorBrush(Colors.Yellow); //temp remove later
+			ContainingGrid.Children.Add(container);
+
             //Creating questions container
             Grid parentGrid = new Grid();
+            parentGrid.Background = new SolidColorBrush(Colors.Gray);
             for (int i = 0; i < 5; i++)
             {
                 parentGrid.RowDefinitions.Add(new RowDefinition()); //give parent grid 5 rows
@@ -35,47 +42,98 @@ namespace Word_Guesser
             {
                 parentGrid.ColumnDefinitions.Add(new ColumnDefinition()); //give parent grid 5 columns
             }
-            parentGrid.Margin = new Thickness(28, 30, 28, 92);
             parentGrid.Name = "QuestionBoxGrid";
+            container.Child = parentGrid;
 
             //Instantiate all of the category headers
             Border headerOne = new Border();
+            headerOne.Background = new SolidColorBrush(Colors.White);
+            headerOne.CornerRadius = new CornerRadius(5);
+            headerOne.BorderBrush = new SolidColorBrush(Colors.Black);
+            headerOne.BorderThickness = new Thickness(1);
+            headerOne.Height = 35;
+            headerOne.Width = 50;
             TextBlock headerOneTitle = new TextBlock();
             headerOneTitle.Text = "Animals";
+            headerOneTitle.FontSize = 10;
+            headerOneTitle.HorizontalAlignment = HorizontalAlignment.Center;
+            headerOneTitle.VerticalAlignment = VerticalAlignment.Center;
+            headerOne.Child = headerOneTitle;
             Grid.SetRow(headerOne, 0);
             Grid.SetColumn(headerOne, 0);
             parentGrid.Children.Add(headerOne);
 
             Border headerTwo = new Border();
+            headerTwo.Background = new SolidColorBrush(Colors.White);
+            headerTwo.CornerRadius = new CornerRadius(5);
+            headerTwo.BorderBrush = new SolidColorBrush(Colors.Black);
+            headerTwo.BorderThickness = new Thickness(1);
+            headerTwo.Height = 35;
+            headerTwo.Width = 50;
             TextBlock headerTwoTitle = new TextBlock();
             headerTwoTitle.Text = "Sports";
+            headerTwoTitle.FontSize = 10;
+            headerTwoTitle.HorizontalAlignment = HorizontalAlignment.Center;
+            headerTwoTitle.VerticalAlignment = VerticalAlignment.Center;
+            headerTwo.Child = headerTwoTitle;
             Grid.SetRow(headerTwo, 0);
             Grid.SetColumn(headerTwo, 1);
             parentGrid.Children.Add(headerTwo);
 
             Border headerThree = new Border();
+            headerThree.Background = new SolidColorBrush(Colors.White);
+            headerThree.CornerRadius = new CornerRadius(5);
+            headerThree.BorderBrush = new SolidColorBrush(Colors.Black);
+            headerThree.BorderThickness = new Thickness(1);
+            headerThree.Height = 35;
+            headerThree.Width = 50;
             TextBlock headerThreeTitle = new TextBlock();
             headerThreeTitle.Text = "Drinks";
+            headerThreeTitle.FontSize = 10;
+            headerThreeTitle.HorizontalAlignment = HorizontalAlignment.Center;
+            headerThreeTitle.VerticalAlignment = VerticalAlignment.Center;
+            headerThree.Child = headerThreeTitle;
             Grid.SetRow(headerThree, 0);
             Grid.SetColumn(headerThree, 2);
             parentGrid.Children.Add(headerThree);
 
             Border headerFour = new Border();
+            headerFour.Background = new SolidColorBrush(Colors.White);
+            headerFour.CornerRadius = new CornerRadius(5);
+            headerFour.BorderBrush = new SolidColorBrush(Colors.Black);
+            headerFour.BorderThickness = new Thickness(1);
+            headerFour.Height = 35;
+            headerFour.Width = 50;
             TextBlock headerFourTitle = new TextBlock();
+            headerFourTitle.FontSize = 10;
+            headerFourTitle.HorizontalAlignment = HorizontalAlignment.Center;
+            headerFourTitle.VerticalAlignment = VerticalAlignment.Center;
             headerFourTitle.Text = "Flowers";
+            headerFour.Child = headerFourTitle;
             Grid.SetRow(headerFour, 0);
             Grid.SetColumn(headerFour, 3);
             parentGrid.Children.Add(headerFour);
 
             Border headerFive = new Border();
+            headerFive.Background = new SolidColorBrush(Colors.White);
+            headerFive.CornerRadius = new CornerRadius(5);
+            headerFive.BorderBrush = new SolidColorBrush(Colors.Black);
+            headerFive.BorderThickness = new Thickness(1);
+            headerFive.Height = 35;
+            headerFive.Width = 50;
             TextBlock headerFiveTitle = new TextBlock();
             headerFiveTitle.Text = "Cities";
+            headerFiveTitle.FontSize = 10;
+            headerFiveTitle.HorizontalAlignment = HorizontalAlignment.Center;
+            headerFiveTitle.VerticalAlignment = VerticalAlignment.Center;
+            headerFiveTitle.Text = "Flowers";
+            headerFive.Child = headerFiveTitle;
             Grid.SetRow(headerFive, 0);
             Grid.SetColumn(headerFive, 4);
             parentGrid.Children.Add(headerFive);
 
             //Instantiate all of the questions
-
+            
 
             //Instantiate all of the podiums
 

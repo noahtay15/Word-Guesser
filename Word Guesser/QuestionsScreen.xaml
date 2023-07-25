@@ -5,27 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Word_Guesser"
         mc:Ignorable="d"
-        Title="QuestionsScreen" Background="#002">
+        Title="QuestionsScreen" Background="White">
 
-    <Page.Resources>
-        <Style x:Key="NoMouseOverColorButton" TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
+	<Page.Resources>
+		<Style x:Key="NoMouseOverColorButton" TargetType="Button">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Page.Resources>
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Page.Resources>
 
-    <Viewbox Stretch="Uniform">
-        <Grid>
-            <Button Name="BackToPlayerInitButton"
+	<Viewbox Stretch="Uniform">
+		<Grid x:Name="ContainingGrid">
+			<Grid x:FieldModifier="Podium1" Margin="0,25,70,0">
+				<Rectangle Fill="Red" Stroke="Black" StrokeThickness="0.5" Margin="3,3,3,0"/>
+				<Ellipse Fill="Red" Stroke="Black" StrokeThickness=".5" Margin="3,0,3,10"/>
+				<TextBlock x:Name="PlayerScorePodium1" Background="Black" Margin="4,8,4,3" FontFamily="Verdana" Text="0" Foreground="Gold" FontSize="4" TextAlignment="Right"/>
+				<TextBlock x:Name="PlayerNamePodium1" Width="9.5" Height="2.5" Text="TesterName" Foreground="White" Panel.ZIndex="1" FontSize="1.75" Margin="4,2,4,12" TextAlignment="Center"/>
+			</Grid>
+			<Button Name="BackToPlayerInitButton"
                 Content="Back" 
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Bottom" 
@@ -33,16 +39,16 @@
                 Width="60"
                 Cursor="Hand"
                 Click="BackToPlayerInitButton_Click" 
-                Margin="10,0,0,6">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Grid>
-                            <Ellipse x:Name="BackToPlayerNumberButtonEllipse" Fill="LightBlue" Width="60" Height="30" Stroke="Black" StrokeThickness="4"/>
-                            <ContentPresenter x:Name="BackToPlayerNumberButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-        </Grid>
-    </Viewbox>
+                Margin="28,0,0,7">
+				<Button.Template>
+					<ControlTemplate TargetType="Button">
+						<Grid>
+							<Ellipse x:Name="BackToPlayerNumberButtonEllipse" Fill="LightBlue" Width="60" Height="30" Stroke="Black" StrokeThickness="4"/>
+							<ContentPresenter x:Name="BackToPlayerNumberButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+						</Grid>
+					</ControlTemplate>
+				</Button.Template>
+			</Button>
+		</Grid>
+	</Viewbox>
 </Page>

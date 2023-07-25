@@ -5,6 +5,9 @@ General:
 MainWindow:
 - Get rid of the bar up top
 
+TitleScreen:
+-May come back after completing everything and touch up the xaml
+
 Player:
 -May have more but idk
 
@@ -17,9 +20,19 @@ PlayerInitBox:
 
 QuestionsScreen:
 - Create the constructor and move all necessary stuff into that
+- Container box corner radius = 5
 
-TitleScreen:
--May come back after completing everything and touch up the xaml
+Question:
+-All of it
+
+Podium:
+-all of it
+
+FileHandler:
+-all of it
+
+AnsweringScreen:
+-all of it
 
 WinnerScreen:
 -All of it
