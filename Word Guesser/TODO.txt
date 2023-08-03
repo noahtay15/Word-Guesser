@@ -15,12 +15,19 @@ PlayerNumberScreen:
 
 PlayersInitScreen:
 - finish SubmitButton_Click. Details in comments of that event handler
+- user input validation problem where entering a valid name -> reentering only one letter does not reenable submit button until the second letter is entered
 
 PlayerInitBox:
 
 QuestionsScreen:
 - Create the constructor and move all necessary stuff into that
 - Container box corner radius = 5
+<Grid x:Name="Podium1" Margin="10,10,60,15">
+                <Rectangle Fill="Red" Stroke="Black" StrokeThickness="0.5" Margin="3,3,3,0"/>
+                <Ellipse Fill="Red" Stroke="Black" StrokeThickness=".5" Margin="2.985,0,2.985,12"/>
+                <TextBlock x:Name="PlayerScorePodium1" Background="Black" Margin="4,8,4,6" FontFamily="Verdana" Text="2000" Foreground="Gold" FontSize="4" TextAlignment="Right"/>
+                <TextBlock x:Name="PlayerNamePodium1" Width="9.5" Height="2.5" Text="TesterName" Foreground="White" Panel.ZIndex="1" FontSize="1.75" Margin="4,2,4,14" TextAlignment="Center"/>
+            </Grid>
 
 Question:
 -All of it

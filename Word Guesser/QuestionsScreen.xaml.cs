@@ -21,7 +21,7 @@ namespace Word_Guesser
     {
         private bool isButtonClicked = false;
 
-        public QuestionsScreen(int numPlayers)
+        public QuestionsScreen(int numPlayers, string[] playerNames, Brush[] playerColors)
         {
             InitializeComponent();
 
@@ -51,8 +51,6 @@ namespace Word_Guesser
             headerOne.CornerRadius = new CornerRadius(5);
             headerOne.BorderBrush = new SolidColorBrush(Colors.Black);
             headerOne.BorderThickness = new Thickness(1);
-            headerOne.Height = 35;
-            headerOne.Width = 50;
             TextBlock headerOneTitle = new TextBlock();
             headerOneTitle.Text = "Animals";
             headerOneTitle.FontSize = 10;
@@ -68,8 +66,6 @@ namespace Word_Guesser
             headerTwo.CornerRadius = new CornerRadius(5);
             headerTwo.BorderBrush = new SolidColorBrush(Colors.Black);
             headerTwo.BorderThickness = new Thickness(1);
-            headerTwo.Height = 35;
-            headerTwo.Width = 50;
             TextBlock headerTwoTitle = new TextBlock();
             headerTwoTitle.Text = "Sports";
             headerTwoTitle.FontSize = 10;
@@ -85,8 +81,6 @@ namespace Word_Guesser
             headerThree.CornerRadius = new CornerRadius(5);
             headerThree.BorderBrush = new SolidColorBrush(Colors.Black);
             headerThree.BorderThickness = new Thickness(1);
-            headerThree.Height = 35;
-            headerThree.Width = 50;
             TextBlock headerThreeTitle = new TextBlock();
             headerThreeTitle.Text = "Drinks";
             headerThreeTitle.FontSize = 10;
@@ -102,8 +96,6 @@ namespace Word_Guesser
             headerFour.CornerRadius = new CornerRadius(5);
             headerFour.BorderBrush = new SolidColorBrush(Colors.Black);
             headerFour.BorderThickness = new Thickness(1);
-            headerFour.Height = 35;
-            headerFour.Width = 50;
             TextBlock headerFourTitle = new TextBlock();
             headerFourTitle.FontSize = 10;
             headerFourTitle.HorizontalAlignment = HorizontalAlignment.Center;
@@ -119,14 +111,11 @@ namespace Word_Guesser
             headerFive.CornerRadius = new CornerRadius(5);
             headerFive.BorderBrush = new SolidColorBrush(Colors.Black);
             headerFive.BorderThickness = new Thickness(1);
-            headerFive.Height = 35;
-            headerFive.Width = 50;
             TextBlock headerFiveTitle = new TextBlock();
             headerFiveTitle.Text = "Cities";
             headerFiveTitle.FontSize = 10;
             headerFiveTitle.HorizontalAlignment = HorizontalAlignment.Center;
             headerFiveTitle.VerticalAlignment = VerticalAlignment.Center;
-            headerFiveTitle.Text = "Flowers";
             headerFive.Child = headerFiveTitle;
             Grid.SetRow(headerFive, 0);
             Grid.SetColumn(headerFive, 4);
@@ -136,7 +125,32 @@ namespace Word_Guesser
             
 
             //Instantiate all of the podiums
-
+            if(numPlayers == 1)
+            {
+                Podium player1Podium = new Podium(playerNames[0], playerColors[0], 249, 359, 469, 0, ContainingGrid); //name, color, margin, parentGrid
+            }
+            else if(numPlayers == 2)
+            {
+                Podium player1Podium = new Podium(playerNames[0], playerColors[0], 249, 359, 469, 0, ContainingGrid);
+                Podium player2Podium = new Podium(playerNames[1], playerColors[1], 469, 359, 249, 0, ContainingGrid);
+            }
+            else if(numPlayers == 3)
+            {
+                Podium player1Podium = new Podium(playerNames[0], playerColors[0], 152, 359, 566, 0, ContainingGrid);
+                Podium player2Podium = new Podium(playerNames[1], playerColors[1], 359, 359, 359, 0, ContainingGrid);
+                Podium player3Podium = new Podium(playerNames[2], playerColors[2], 566, 359, 152, 0, ContainingGrid);
+            }
+            else if(numPlayers == 4)
+            {
+                Podium player1Podium = new Podium(playerNames[0], playerColors[0], 111, 359, 607, 0, ContainingGrid);
+                Podium player2Podium = new Podium(playerNames[1], playerColors[1], 265, 359, 453, 0, ContainingGrid);
+                Podium player3Podium = new Podium(playerNames[2], playerColors[2], 457, 359, 261, 0, ContainingGrid);
+                Podium player4Podium = new Podium(playerNames[3], playerColors[3], 610, 359, 108, 0, ContainingGrid);
+            }
+            else
+            {
+                throw new Exception("Once again, congrats. You should have not been able to get here either");
+            }
         }
 
         private void QuestionButton_MouseEnter(object sender, MouseEventArgs e)
