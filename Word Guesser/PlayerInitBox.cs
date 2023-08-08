@@ -164,5 +164,10 @@ namespace Word_Guesser
         {
             return textBox.Text;
         }
+
+        public Color getPlayerColor()
+        {
+            return Color(colorPicker.SelectedItem);
+        }
     }
 }

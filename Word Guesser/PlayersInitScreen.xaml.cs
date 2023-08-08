@@ -23,6 +23,9 @@ namespace Word_Guesser
     {
         private int numPlayers;
         private bool[] areAllInputsValid;
+        string[] playerNames;
+        Color[] playerColors;
+
         public PlayersInitScreen(int numPlayers)
         {
             this.numPlayers = numPlayers;
@@ -129,6 +132,8 @@ namespace Word_Guesser
             if (number == 1)
             {
                 PlayerInitBox player1 = new PlayerInitBox(parentGrid, 1);//player 1 PlayerInitBox
+                playerNames = new string[] {player1.getNewPlayerName()};
+                playerColors = new Color[] { player1.getPlayerColor };
 
                 parentGrid.RowDefinitions.Add(new RowDefinition());
                 parentGrid.RowDefinitions.Add(new RowDefinition());
@@ -279,7 +284,7 @@ namespace Word_Guesser
             //need send that stuff to instantiate player objects
 
             MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
-            mainWindow?.MainFrame.Navigate(new QuestionsScreen(numPlayers));
+            mainWindow?.MainFrame.Navigate(new QuestionsScreen(numPlayers, playerNames, playerColors));
         }
 
         private void SubmitButton_MouseEnter(object sender, MouseEventArgs e)

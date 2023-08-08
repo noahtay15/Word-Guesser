@@ -20,10 +20,18 @@ namespace Word_Guesser
     public partial class QuestionsScreen : Page
     {
         private bool isButtonClicked = false;
+        private int numPlayers;
+        private string[] playerNames;
+        private Color[] playerColors;
 
-        public QuestionsScreen(int numPlayers, string[] playerNames, Brush[] playerColors)
+
+        public QuestionsScreen(int numPlayers, string[] playerNames, Color[] playerColors)
         {
             InitializeComponent();
+
+            this.numPlayers = numPlayers;
+            this.playerNames = playerNames;
+            this.playerColors = playerColors;
 
             Border container = new Border();
             container.CornerRadius = new CornerRadius(5);

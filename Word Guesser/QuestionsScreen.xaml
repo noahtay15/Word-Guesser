@@ -43,30 +43,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Grid x:Name="Podium1" Margin="469,359,249,0">
-                <Rectangle Fill="Red" Stroke="Black" StrokeThickness="1.5" Margin="3,14,3,0"/>
-                <Ellipse Fill="Red" Stroke="Black" StrokeThickness="1.5" Margin="3,0,3,65"/>
-                <TextBlock x:Name="PlayerScorePodium1" Background="Black"  FontFamily="Verdana" Text="2000" Foreground="Gold" FontSize="14" TextAlignment="Center" Margin="18,44,18,31"/>
-                <TextBlock x:Name="PlayerNamePodium1" Text="TesterName" Foreground="White" Panel.ZIndex="1" FontSize="10" Margin="14,7,14,73" TextAlignment="Center"/>
-            </Grid>
-            <Grid x:Name="Podium2" Margin="249,359,469,0">
-                <Rectangle Fill="Green" Stroke="Black" StrokeThickness="1.5" Margin="3,14,3,0"/>
-                <Ellipse Fill="Green" Stroke="Black" StrokeThickness="1.5" Margin="3,0,3,65"/>
-                <TextBlock x:Name="PlayerScorePodium2" Background="Black"  FontFamily="Verdana" Text="2000" Foreground="Gold" FontSize="14" TextAlignment="Center" Margin="18,44,18,31"/>
-                <TextBlock x:Name="PlayerNamePodium2" Text="TesterName" Foreground="White" Panel.ZIndex="1" FontSize="10" Margin="14,7,14,73" TextAlignment="Center"/>
-            </Grid>
-            <Grid x:Name="Podium3" Margin="861,154,-143,205">
-                <Rectangle Fill="Purple" Stroke="Black" StrokeThickness="1.5" Margin="3,14,3,0"/>
-                <Ellipse Fill="Purple" Stroke="Black" StrokeThickness="1.5" Margin="3,0,3,65"/>
-                <TextBlock x:Name="PlayerScorePodium3" Background="Black"  FontFamily="Verdana" Text="2000" Foreground="Gold" FontSize="14" TextAlignment="Center" Margin="18,44,18,31"/>
-                <TextBlock x:Name="PlayerNamePodium3" Text="TesterName" Foreground="White" Panel.ZIndex="1" FontSize="10" Margin="14,7,14,73" TextAlignment="Center"/>
-            </Grid>
-            <Grid x:Name="Podium4" Margin="861,31,-143,328">
-                <Rectangle Fill="Orange" Stroke="Black" StrokeThickness="1.5" Margin="3,14,3,0"/>
-                <Ellipse Fill="Orange" Stroke="Black" StrokeThickness="1.5" Margin="3,0,3,65"/>
-                <TextBlock x:Name="PlayerScorePodium4" Background="Black"  FontFamily="Verdana" Text="2000" Foreground="Gold" FontSize="14" TextAlignment="Center" Margin="18,44,18,31"/>
-                <TextBlock x:Name="PlayerNamePodium4" Text="TesterName" Foreground="White" Panel.ZIndex="1" FontSize="10" Margin="14,7,14,73" TextAlignment="Center"/>
-            </Grid>
+            
         </Grid>
     </Viewbox>
 </Page>
