@@ -14,31 +14,26 @@ namespace Word_Guesser
     internal class Podium : Grid
     {
         string name;
-        Brush color;
-        Thickness margin;
-        Grid parentGrid;
+        System.Windows.Media.Color color;
 
-        public Podium(string name, Brush color, double leftMargin, double topMargin, double rightMargin, double bottomMargin, Grid parentGrid)
+        public Podium(string name, System.Windows.Media.Color color, double leftMargin, double topMargin, double rightMargin, double bottomMargin, Grid parentGrid)
         {
             this.name = name;
             this.color = color;
-            this.margin = new Thickness();
-            this.parentGrid = parentGrid;
+            this.Margin = new Thickness(leftMargin, topMargin, rightMargin, bottomMargin);
 
             System.Windows.Shapes.Rectangle rectangle = new System.Windows.Shapes.Rectangle();
             System.Windows.Shapes.Ellipse ellipse = new System.Windows.Shapes.Ellipse();
             TextBlock playerScoreBlock = new TextBlock();
             TextBlock playerNameBlock = new TextBlock();
 
-            rectangle.Fill = Brushes.Red;
-            rectangle.Fill = Brushes.Red;
+            rectangle.Fill = new SolidColorBrush(color);
             rectangle.Stroke = Brushes.Black;
             rectangle.StrokeThickness = 1.5;
             rectangle.Margin = new System.Windows.Thickness(3, 14, 3, 0);
             this.Children.Add(rectangle);
 
-            ellipse.Fill = color;
-            ellipse.Fill = Brushes.Red;
+            ellipse.Fill = new SolidColorBrush(color);
             ellipse.Stroke = Brushes.Black;
             ellipse.StrokeThickness = 1.5;
             ellipse.Margin = new System.Windows.Thickness(3, 0, 3, 65);
@@ -51,15 +46,19 @@ namespace Word_Guesser
             playerScoreBlock.FontSize = 14;
             playerScoreBlock.TextAlignment = TextAlignment.Center;
             playerScoreBlock.Margin = new System.Windows.Thickness(18, 44, 18, 31);
+            playerScoreBlock.Text = "0";
             this.Children.Add(playerScoreBlock);
 
             playerNameBlock.Name = "PlayerNamePodium1";
             playerNameBlock.Foreground = Brushes.White;
             playerNameBlock.FontSize = 10;
+            playerNameBlock.Text = name;
             playerNameBlock.TextAlignment = TextAlignment.Center;
-            playerNameBlock.Margin = new System.Windows.Thickness(14, 7, 14, 73);
+            playerNameBlock.Margin = new System.Windows.Thickness(14, 6, 14, 71);
             Panel.SetZIndex(playerNameBlock, 1);
-            this.Children.Add(playerScoreBlock);
+            this.Children.Add(playerNameBlock);
+
+            parentGrid.Children.Add(this);
         }
     }
 }

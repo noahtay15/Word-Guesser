@@ -63,7 +63,7 @@ namespace Word_Guesser
 
         private void BackToTitleButtonClick(object sender, RoutedEventArgs e) 
         {
-            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
             mainWindow?.MainFrame.NavigationService?.GoBack();
         }
 

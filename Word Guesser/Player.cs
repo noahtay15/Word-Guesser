@@ -13,12 +13,10 @@ namespace Word_Guesser
         private int points = 0;
         private int position;
         private String? guess;
-        private String color;
 
-        public Player(String name, String color) 
+        public Player(String name) 
         {
            this.name = name;
-           this.color = color;
         }
 
         //GETTERS AND SETTERS PAST HERE
@@ -61,16 +59,6 @@ namespace Word_Guesser
         public void SetGuess(String guess)
         {
             this.guess = guess;
-        }
-
-        public String GetColor() 
-        { 
-            return color; 
-        }
-
-        public void SetColor(String color)
-        {
-            this.color = color;
         }
     }
 }

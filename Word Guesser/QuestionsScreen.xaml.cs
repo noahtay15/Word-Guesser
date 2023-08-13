@@ -23,6 +23,7 @@ namespace Word_Guesser
         private int numPlayers;
         private string[] playerNames;
         private Color[] playerColors;
+        private Question[,] questions;
 
 
         public QuestionsScreen(int numPlayers, string[] playerNames, Color[] playerColors)
@@ -108,7 +109,7 @@ namespace Word_Guesser
             headerFourTitle.FontSize = 10;
             headerFourTitle.HorizontalAlignment = HorizontalAlignment.Center;
             headerFourTitle.VerticalAlignment = VerticalAlignment.Center;
-            headerFourTitle.Text = "Flowers";
+            headerFourTitle.Text = "Fruits";
             headerFour.Child = headerFourTitle;
             Grid.SetRow(headerFour, 0);
             Grid.SetColumn(headerFour, 3);
@@ -130,12 +131,42 @@ namespace Word_Guesser
             parentGrid.Children.Add(headerFive);
 
             //Instantiate all of the questions
-            
+            FileHandler fileHandler = new FileHandler("cities.txt", "fruits.txt", "sports.txt", "drinks.txt", "animals.txt", 4);
+            string[,] cities = fileHandler.getCities();
+            string[,] fruits = fileHandler.getFruits();
+            string[,] sports = fileHandler.getSports();
+            string[,] drinks = fileHandler.getDrinks();
+            string[,] animals = fileHandler.getAnimals();
+            questions = new Question[4, 5];
+            //animals sprots drinks flowers cities
+            for (int i = 0; i < 4; i++) //rows
+            {
+                for(int j = 0; j < 5; j++) //cols
+                {
+                    if(i == 0)
+                    {
+                        questions[i, j] = new Question(animals[i, 0], animals[i, 1], i + 1, i + 1, j, parentGrid);
+                    }
+                    if (i == 1)
+                    {
+                        questions[i, j] = new Question(sports[i, 0], sports[i, 1], i + 1, i + 1, j, parentGrid);
+                    }
+                    if (i == 2)
+                    {
+                        questions[i, j] = new Question(drinks[i, 0], drinks[i, 1], i + 1, i + 1, j, parentGrid);
+                    }
+                    if (i == 3)
+                    {
+                        questions[i, j] = new Question(fruits[i, 0], fruits[i, 1], i + 1, i + 1, j, parentGrid);
+                    }
+                    
+                }
+            }
 
             //Instantiate all of the podiums
             if(numPlayers == 1)
             {
-                Podium player1Podium = new Podium(playerNames[0], playerColors[0], 249, 359, 469, 0, ContainingGrid); //name, color, margin, parentGrid
+                Podium player1Podium = new Podium(playerNames[0], playerColors[0], 359, 359, 359, 0, ContainingGrid); //name, color, margin, parentGrid
             }
             else if(numPlayers == 2)
             {
@@ -182,7 +213,7 @@ namespace Word_Guesser
             {
                 // retrieve the parent grid
                 Button button = (Button)sender;
-                Grid parentGrid = button.Parent as Grid;
+                Grid? parentGrid = button.Parent as Grid;
 
                 // retrieve the row and column of the button to be replaced
                 int row = Grid.GetRow(button);
@@ -208,10 +239,10 @@ namespace Word_Guesser
                 border.Child = textBlock;
 
                 // remove the button from the parent grid
-                parentGrid.Children.Remove(button);
+                parentGrid?.Children.Remove(button);
 
                 // put the new grid into the parent grid at the correct place 
-                parentGrid.Children.Add(border);
+                parentGrid?.Children.Add(border);
                 Grid.SetColumn(border, col);
                 Grid.SetRow(border, row);
             });
@@ -222,7 +253,7 @@ namespace Word_Guesser
 
         private void BackToPlayerInitButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
             mainWindow?.MainFrame.NavigationService?.GoBack();
         }
     }

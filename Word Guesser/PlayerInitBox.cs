@@ -66,25 +66,25 @@ namespace Word_Guesser
             DataTemplate itemTemplate = new DataTemplate();
             ComboBoxItem blue = new ComboBoxItem();
             blue.Content = "Blue";
-            blue.Tag = "Blue";
+            blue.Tag = Colors.Blue;
             ComboBoxItem green = new ComboBoxItem();
             green.Content = "Green";
-            green.Tag = "Green";
+            green.Tag = Colors.Green;
             ComboBoxItem red = new ComboBoxItem();
             red.Content = "Red";
-            red.Tag = "Red";
+            red.Tag = Colors.Red;
             ComboBoxItem purple = new ComboBoxItem();
             purple.Content = "Purple";
-            purple.Tag = "Purple";
+            purple.Tag = Colors.Purple;
             ComboBoxItem orange = new ComboBoxItem();
             orange.Content = "Orange";
-            orange.Tag = "Orange";
+            orange.Tag = Colors.Orange;
             ComboBoxItem yellow = new ComboBoxItem();
             yellow.Content = "Yellow";
-            yellow.Tag = "Yellow";
+            yellow.Tag = Colors.Yellow;
             ComboBoxItem pink = new ComboBoxItem();
             pink.Content = "Pink";
-            pink.Tag = "Pink";
+            pink.Tag = Colors.Pink;
             
             colorPicker.Items.Add(blue);
             colorPicker.Items.Add(green);
@@ -121,7 +121,7 @@ namespace Word_Guesser
         {
             this.textBox = (TextBox)sender;
             Regex alphaNumeric = new Regex("^[a-zA-Z0-9]*$");
-            if (textBox.Text.Length > 12 && !errorMessage.Text.Contains(" Name is too long.")) //if it is too long and doesnt show length warning already
+            if (textBox.Text.Length > 9 && !errorMessage.Text.Contains(" Name is too long.")) //if it is too long and doesnt show length warning already
             {
                 errorMessage.Text += " Name is too long.";
                 ValidationFailed.Invoke(this, new EventArgs());
@@ -131,7 +131,7 @@ namespace Word_Guesser
                 errorMessage.Text += " Alphanumeric characters only.";
                 ValidationFailed.Invoke(this, new EventArgs());
             }
-            else if (textBox.Text.Length <= 12 && errorMessage.Text.Contains(" Name is too long.")) //when name is correct length and shows length warning
+            else if (textBox.Text.Length <= 9 && errorMessage.Text.Contains(" Name is too long.")) //when name is correct length and shows length warning
             {
                 errorMessage.Text = errorMessage.Text.Replace(" Name is too long.", "");
             }
@@ -167,7 +167,8 @@ namespace Word_Guesser
 
         public Color getPlayerColor()
         {
-            return Color(colorPicker.SelectedItem);
+            Color color = (Color)((ComboBoxItem)colorPicker.SelectedItem).Tag;
+            return color;
         }
     }
 }

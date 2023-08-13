@@ -25,6 +25,7 @@ namespace Word_Guesser
         private bool[] areAllInputsValid;
         string[] playerNames;
         Color[] playerColors;
+        Grid parentGrid;
 
         public PlayersInitScreen(int numPlayers)
         {
@@ -33,90 +34,6 @@ namespace Word_Guesser
             if (numPlayers > 0 && numPlayers < 5)
             {
                 createPlayerInitBoxes(numPlayers, PlayerInitContainerGrid);
-                /** This will replace all of the if statement
-                 * Grid parentGrid = PlayerInitContainerGrid;
-                 * 
-                 * if(numPlayers == 1)
-                 * {
-                 *      parentGrid.RowDefinitions.Add(new RowDefinition());
-                        parentGrid.RowDefinitions.Add(new RowDefinition());
-                        parentGrid.RowDefinitions.Add(new RowDefinition());
-                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
-                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
-                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
-
-                        PlayerInitBox player1InitBox = new PlayerInitBox(parentGrid, "1");
-
-                        Grid.SetRow(player1InitBox, 1);
-                        Grid.SetColumn(player1InitBox, 1);
-                 * }
-                 * else if(numPlayers == 2)
-                 * {
-                 *      parentGrid.RowDefinitions.Add(new RowDefinition());
-                        parentGrid.RowDefinitions.Add(new RowDefinition());
-                        parentGrid.RowDefinitions.Add(new RowDefinition());
-                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
-                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
-
-                        PlayerInitBox player1InitBox = new PlayerInitBox(parentGrid, "1");
-                 *      PlayerInitBox player2InitBox = new PlayerInitBox(parentGrid, "2");
-
-                        Grid.SetRow(player1InitBox, 1);
-                        Grid.SetColumn(player1InitBox, 0);
-
-                        Grid.SetRow(player2InitBox, 1);
-                        Grid.SetColumn(player2InitBox, 1);
-                 * }
-                 * else if(numPlayers == 3)
-                 * {
-                 *      parentGrid.RowDefinitions.Add(new RowDefinition());
-                        parentGrid.RowDefinitions.Add(new RowDefinition());
-                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
-                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
-
-                        PlayerInitBox player1InitBox = new PlayerInitBox(parentGrid, "1");
-                 *      PlayerInitBox player2InitBox = new PlayerInitBox(parentGrid, "2");
-                 *      PlayerInitBox player3InitBox = new PlayerInitBox(parentGrid, "3");
-
-                        Grid.SetRow(player1, 0);
-                        Grid.SetColumn(player1, 0);
-
-                        Grid.SetRow(player2, 0);
-                        Grid.SetColumn(player2, 1);
-
-                        Grid.SetRow(player3 , 1);
-                        Grid.SetColumn(player3, 0);
-                 *      
-                 * }
-                 * else if(numPlayers == 4)
-                 * {
-                 *      parentGrid.RowDefinitions.Add(new RowDefinition());
-                        parentGrid.RowDefinitions.Add(new RowDefinition());
-                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
-                        parentGrid.ColumnDefinitions.Add(new ColumnDefinition());
-
-                        PlayerInitBox player1InitBox = new PlayerInitBox(parentGrid, "1");
-                 *      PlayerInitBox player2InitBox = new PlayerInitBox(parentGrid, "2");
-                 *      PlayerInitBox player3InitBox = new PlayerInitBox(parentGrid, "3");
-                 *      PlayerInitBox player4InitBox = new PlayerInitBox(parentGrid, "4");
-
-                        Grid.SetRow(player1, 0);
-                        Grid.SetColumn(player1, 0);
-
-                        Grid.SetRow(player2, 0);
-                        Grid.SetColumn(player2, 1);
-
-                        Grid.SetRow(player3, 1);
-                        Grid.SetColumn(player3, 0);
-
-                        Grid.SetRow(player4 , 1);
-                        Grid.SetColumn(player4, 1);
-                 * }
-                 * else
-                 * {
-                 *      throw new Exception("Invalid input. Congrats, you shouldn't have been able to get here, yet here you are.");
-                 * }
-                 */
             }
             else
             {
@@ -127,13 +44,14 @@ namespace Word_Guesser
         //creates the player initialization boxes. Calls other methods to fill the contents
         public void createPlayerInitBoxes(int number, Grid parentGrid)
         {
+            this.parentGrid = parentGrid;
             this.numPlayers = number;
+            playerNames = new string[number];
+            playerColors = new Color[number];
 
             if (number == 1)
             {
                 PlayerInitBox player1 = new PlayerInitBox(parentGrid, 1);//player 1 PlayerInitBox
-                playerNames = new string[] {player1.getNewPlayerName()};
-                playerColors = new Color[] { player1.getPlayerColor };
 
                 parentGrid.RowDefinitions.Add(new RowDefinition());
                 parentGrid.RowDefinitions.Add(new RowDefinition());
@@ -254,6 +172,26 @@ namespace Word_Guesser
             }
         } 
 
+        private String getPlayerName(PlayerInitBox player)
+        {
+            return player.getNewPlayerName();
+        }
+
+        private void setPlayerName(int i, string name)
+        {
+            playerNames[i] = name;
+        }
+
+        private Color getPlayerColor(PlayerInitBox player)
+        {
+            return player.getPlayerColor();
+        }
+
+        private void setPlayerColor(int i, Color color)
+        {
+            playerColors[i] = color;
+        }
+
         private void BackToPlayerNumberButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
@@ -281,7 +219,19 @@ namespace Word_Guesser
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             //not done
-            //need send that stuff to instantiate player objects
+            //need to send that stuff to instantiate player objects
+
+            //take the submitted names and colors and put them in their respective arrays
+            int i = 0;
+            foreach (UIElement child in parentGrid.Children)
+            {
+                if (child is PlayerInitBox playerBox)
+                {
+                    setPlayerColor(i, getPlayerColor(playerBox));
+                    setPlayerName(i, getPlayerName(playerBox));
+                    i++;
+                }
+            }
 
             MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
             mainWindow?.MainFrame.Navigate(new QuestionsScreen(numPlayers, playerNames, playerColors));
