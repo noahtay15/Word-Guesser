@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
-using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace Word_Guesser
@@ -23,8 +15,7 @@ namespace Word_Guesser
     {
         private int numPlayers;
         private bool[] areAllInputsValid;
-        string[] playerNames;
-        Color[] playerColors;
+        Player[] players;
         Grid parentGrid;
 
         public PlayersInitScreen(int numPlayers)
@@ -46,8 +37,7 @@ namespace Word_Guesser
         {
             this.parentGrid = parentGrid;
             this.numPlayers = number;
-            playerNames = new string[number];
-            playerColors = new Color[number];
+            players = new Player[number];
 
             if (number == 1)
             {
@@ -177,19 +167,9 @@ namespace Word_Guesser
             return player.getNewPlayerName();
         }
 
-        private void setPlayerName(int i, string name)
-        {
-            playerNames[i] = name;
-        }
-
         private Color getPlayerColor(PlayerInitBox player)
         {
             return player.getPlayerColor();
-        }
-
-        private void setPlayerColor(int i, Color color)
-        {
-            playerColors[i] = color;
         }
 
         private void BackToPlayerNumberButton_Click(object sender, RoutedEventArgs e)
@@ -227,14 +207,13 @@ namespace Word_Guesser
             {
                 if (child is PlayerInitBox playerBox)
                 {
-                    setPlayerColor(i, getPlayerColor(playerBox));
-                    setPlayerName(i, getPlayerName(playerBox));
+                    players[i] = new Player(getPlayerName(playerBox), getPlayerColor(playerBox));
                     i++;
                 }
             }
 
             MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
-            mainWindow?.MainFrame.Navigate(new QuestionsScreen(numPlayers, playerNames, playerColors));
+            mainWindow?.MainFrame.Navigate(new QuestionsScreen(players));
         }
 
         private void SubmitButton_MouseEnter(object sender, MouseEventArgs e)

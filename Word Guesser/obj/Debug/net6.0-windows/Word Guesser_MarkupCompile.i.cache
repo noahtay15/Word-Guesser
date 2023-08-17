@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Noaht\OneDrive\Desktop\Include in Portfolio\Word-Guesser\Word Guesser\App.xaml
-7-486727373
+81957813133
 
-161970515707
+17-536336022
 1941675070116
-AnsweringScreen.xaml;MainWindow.xaml;PlayerNumberScreen.xaml;PlayersInitScreen.xaml;QuestionsScreen.xaml;TitleScreen.xaml;WinnerScreen.xaml;
+AnsweringScreen.xaml;AwardedPointsScreen.xaml;MainWindow.xaml;PlayerNumberScreen.xaml;PlayersInitScreen.xaml;QuestionsScreen.xaml;TitleScreen.xaml;WinnerScreen.xaml;
 
-False
+True
 

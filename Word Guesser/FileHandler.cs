@@ -61,9 +61,9 @@ internal class FileHandler
              * loops through randedNums and takes the stored random int (which is the selected index for the question:hint in fileLines)
              * and splits them apart to be put into the final returning array
              */
-            string[] temp2 = fileLines[randedNums[i]].Split(':'); 
-            array[i, 0] = temp2[0].Trim();
-            array[i, 1] = temp2[1].Trim();
+            string[] temp2 = fileLines[randedNums[i]].Split(':');
+            array[i, 0] = temp2[0].Trim().Replace("\n", "").Replace("\r", "");
+            array[i, 1] = temp2[1].Trim().Replace("\n", "").Replace("\r", "");
         }
         return array;
     }

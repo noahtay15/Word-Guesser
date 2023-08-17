@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Word_Guesser
 {
@@ -19,30 +11,27 @@ namespace Word_Guesser
     /// </summary>
     public partial class QuestionsScreen : Page
     {
-        private bool isButtonClicked = false;
         private int numPlayers;
-        private string[] playerNames;
-        private Color[] playerColors;
+        Player[] players;
         private Question[,] questions;
+        private Podium[] podiums;
 
 
-        public QuestionsScreen(int numPlayers, string[] playerNames, Color[] playerColors)
+        public QuestionsScreen(Player[] players)
         {
             InitializeComponent();
 
-            this.numPlayers = numPlayers;
-            this.playerNames = playerNames;
-            this.playerColors = playerColors;
+            this.numPlayers = players.Length;
+            this.players = players;
 
             Border container = new Border();
             container.CornerRadius = new CornerRadius(5);
 			container.Margin = new Thickness(28, 30, 28, 92);
-            container.Background = new SolidColorBrush(Colors.Yellow); //temp remove later
 			ContainingGrid.Children.Add(container);
 
             //Creating questions container
             Grid parentGrid = new Grid();
-            parentGrid.Background = new SolidColorBrush(Colors.Gray);
+            parentGrid.Background = new SolidColorBrush(Colors.LightGray);
             for (int i = 0; i < 5; i++)
             {
                 parentGrid.RowDefinitions.Add(new RowDefinition()); //give parent grid 5 rows
@@ -56,7 +45,7 @@ namespace Word_Guesser
 
             //Instantiate all of the category headers
             Border headerOne = new Border();
-            headerOne.Background = new SolidColorBrush(Colors.White);
+            headerOne.Background = new SolidColorBrush(Colors.Silver);
             headerOne.CornerRadius = new CornerRadius(5);
             headerOne.BorderBrush = new SolidColorBrush(Colors.Black);
             headerOne.BorderThickness = new Thickness(1);
@@ -71,7 +60,7 @@ namespace Word_Guesser
             parentGrid.Children.Add(headerOne);
 
             Border headerTwo = new Border();
-            headerTwo.Background = new SolidColorBrush(Colors.White);
+            headerTwo.Background = new SolidColorBrush(Colors.Silver);
             headerTwo.CornerRadius = new CornerRadius(5);
             headerTwo.BorderBrush = new SolidColorBrush(Colors.Black);
             headerTwo.BorderThickness = new Thickness(1);
@@ -86,7 +75,7 @@ namespace Word_Guesser
             parentGrid.Children.Add(headerTwo);
 
             Border headerThree = new Border();
-            headerThree.Background = new SolidColorBrush(Colors.White);
+            headerThree.Background = new SolidColorBrush(Colors.Silver);
             headerThree.CornerRadius = new CornerRadius(5);
             headerThree.BorderBrush = new SolidColorBrush(Colors.Black);
             headerThree.BorderThickness = new Thickness(1);
@@ -101,7 +90,7 @@ namespace Word_Guesser
             parentGrid.Children.Add(headerThree);
 
             Border headerFour = new Border();
-            headerFour.Background = new SolidColorBrush(Colors.White);
+            headerFour.Background = new SolidColorBrush(Colors.Silver);
             headerFour.CornerRadius = new CornerRadius(5);
             headerFour.BorderBrush = new SolidColorBrush(Colors.Black);
             headerFour.BorderThickness = new Thickness(1);
@@ -116,7 +105,7 @@ namespace Word_Guesser
             parentGrid.Children.Add(headerFour);
 
             Border headerFive = new Border();
-            headerFive.Background = new SolidColorBrush(Colors.White);
+            headerFive.Background = new SolidColorBrush(Colors.Silver);
             headerFive.CornerRadius = new CornerRadius(5);
             headerFive.BorderBrush = new SolidColorBrush(Colors.Black);
             headerFive.BorderThickness = new Thickness(1);
@@ -138,53 +127,69 @@ namespace Word_Guesser
             string[,] drinks = fileHandler.getDrinks();
             string[,] animals = fileHandler.getAnimals();
             questions = new Question[4, 5];
-            //animals sprots drinks flowers cities
+
+            //animals sports drinks fruits cities
             for (int i = 0; i < 4; i++) //rows
             {
                 for(int j = 0; j < 5; j++) //cols
                 {
-                    if(i == 0)
+                    if(j == 0)
                     {
-                        questions[i, j] = new Question(animals[i, 0], animals[i, 1], i + 1, i + 1, j, parentGrid);
+                        questions[i, j] = new Question(animals[i, 0], animals[i, 1], "Animals", i + 1, i + 1, j, parentGrid);
                     }
-                    if (i == 1)
+                    if (j == 1)
                     {
-                        questions[i, j] = new Question(sports[i, 0], sports[i, 1], i + 1, i + 1, j, parentGrid);
+                        questions[i, j] = new Question(sports[i, 0], sports[i, 1], "Sports", i + 1, i + 1, j, parentGrid);
                     }
-                    if (i == 2)
+                    if (j == 2)
                     {
-                        questions[i, j] = new Question(drinks[i, 0], drinks[i, 1], i + 1, i + 1, j, parentGrid);
+                        questions[i, j] = new Question(drinks[i, 0], drinks[i, 1], "Drinks", i + 1, i + 1, j, parentGrid);
                     }
-                    if (i == 3)
+                    if (j == 3)
                     {
-                        questions[i, j] = new Question(fruits[i, 0], fruits[i, 1], i + 1, i + 1, j, parentGrid);
+                        questions[i, j] = new Question(fruits[i, 0], fruits[i, 1], "Fruits", i + 1, i + 1, j, parentGrid);
                     }
-                    
+                    if(j == 4)
+                    {
+                        questions[i, j] = new Question(cities[i, 0], cities[i, 1], "Cities", i + 1, i + 1, j, parentGrid);
+                    }
                 }
+            }
+
+            foreach(Question question in questions)
+            {
+                question.MouseEnter += QuestionButton_MouseEnter;
+                question.MouseLeave += QuestionButton_MouseLeave;
+                question.Click += QuestionButton_Click;
             }
 
             //Instantiate all of the podiums
             if(numPlayers == 1)
             {
-                Podium player1Podium = new Podium(playerNames[0], playerColors[0], 359, 359, 359, 0, ContainingGrid); //name, color, margin, parentGrid
+                Podium player1Podium = new Podium(players[0], 359, 359, 359, 0, ContainingGrid); //name, color, margin, parentGrid
+                podiums = new Podium[] { player1Podium };
             }
             else if(numPlayers == 2)
             {
-                Podium player1Podium = new Podium(playerNames[0], playerColors[0], 249, 359, 469, 0, ContainingGrid);
-                Podium player2Podium = new Podium(playerNames[1], playerColors[1], 469, 359, 249, 0, ContainingGrid);
+                Podium player1Podium = new Podium(players[0], 249, 359, 469, 0, ContainingGrid);
+                Podium player2Podium = new Podium(players[1], 469, 359, 249, 0, ContainingGrid);
+                podiums = new Podium[] { player1Podium, player2Podium };
+                
             }
             else if(numPlayers == 3)
             {
-                Podium player1Podium = new Podium(playerNames[0], playerColors[0], 152, 359, 566, 0, ContainingGrid);
-                Podium player2Podium = new Podium(playerNames[1], playerColors[1], 359, 359, 359, 0, ContainingGrid);
-                Podium player3Podium = new Podium(playerNames[2], playerColors[2], 566, 359, 152, 0, ContainingGrid);
+                Podium player1Podium = new Podium(players[0], 152, 359, 566, 0, ContainingGrid);
+                Podium player2Podium = new Podium(players[1], 359, 359, 359, 0, ContainingGrid);
+                Podium player3Podium = new Podium(players[2], 566, 359, 152, 0, ContainingGrid);
+                podiums = new Podium[] { player1Podium, player2Podium, player3Podium};
             }
             else if(numPlayers == 4)
             {
-                Podium player1Podium = new Podium(playerNames[0], playerColors[0], 111, 359, 607, 0, ContainingGrid);
-                Podium player2Podium = new Podium(playerNames[1], playerColors[1], 265, 359, 453, 0, ContainingGrid);
-                Podium player3Podium = new Podium(playerNames[2], playerColors[2], 457, 359, 261, 0, ContainingGrid);
-                Podium player4Podium = new Podium(playerNames[3], playerColors[3], 610, 359, 108, 0, ContainingGrid);
+                Podium player1Podium = new Podium(players[0], 111, 359, 607, 0, ContainingGrid);
+                Podium player2Podium = new Podium(players[1], 265, 359, 453, 0, ContainingGrid);
+                Podium player3Podium = new Podium(players[2], 457, 359, 261, 0, ContainingGrid);
+                Podium player4Podium = new Podium(players[3], 610, 359, 108, 0, ContainingGrid);
+                podiums = new Podium[] { player1Podium, player2Podium, player3Podium, player4Podium};
             }
             else
             {
@@ -194,61 +199,32 @@ namespace Word_Guesser
 
         private void QuestionButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            Button button = (Button)sender;
-            button.BorderBrush = Brushes.LightBlue;
+            Question question = (Question)sender;
+            question.setBorderColor(Brushes.LightBlue);
         }
 
         private void QuestionButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (isButtonClicked == false)
+            Question question = (Question)sender;
+            if (!question.getHasBeenClicked()) //if it has not been clicked
             {
-                Button button = (Button)sender;
-                button.BorderBrush = Brushes.Blue;
+                question.setBorderColor(Brushes.Blue);
             }
         }
 
         private void QuestionButton_Click(object sender, RoutedEventArgs e)
         {
+            Question question = (Question)sender;
+            question.setHasBeenClicked(true);
             Dispatcher.InvokeAsync(() =>
             {
-                // retrieve the parent grid
-                Button button = (Button)sender;
-                Grid? parentGrid = button.Parent as Grid;
-
-                // retrieve the row and column of the button to be replaced
-                int row = Grid.GetRow(button);
-                int col = Grid.GetColumn(button);
-
-                // create the border to go inside the grid
-                Border border = new Border();
-                border.CornerRadius = new CornerRadius(5);
-                border.Background = Brushes.Gray;
-                border.BorderBrush = Brushes.DarkGray;
-                border.BorderThickness = new Thickness(1);
-                border.Height = 35;
-                border.Width = 50;
-
-                // create the textbox to go inside the border
-                TextBlock textBlock = new TextBlock();
-                textBlock.Text = "Question 1";
-                textBlock.FontSize = 9;
-                textBlock.HorizontalAlignment = HorizontalAlignment.Center;
-                textBlock.VerticalAlignment = VerticalAlignment.Center;
-
-                // add the textbox to children of the new border
-                border.Child = textBlock;
-
-                // remove the button from the parent grid
-                parentGrid?.Children.Remove(button);
-
-                // put the new grid into the parent grid at the correct place 
-                parentGrid?.Children.Add(border);
-                Grid.SetColumn(border, col);
-                Grid.SetRow(border, row);
+                question.IsEnabled = false;
+                question.setBorderColor(Brushes.DarkGray);
+                question.setTextColor(Brushes.Black);
             });
 
             MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
-            mainWindow?.MainFrame.Navigate(new AnsweringScreen());
+            mainWindow?.MainFrame.Navigate(new AnsweringScreen(question.getHint(), question.getAnswer(), question.getCategory(), players));
         }
 
         private void BackToPlayerInitButton_Click(object sender, RoutedEventArgs e)

@@ -22,13 +22,11 @@
             Height="56" 
             Width="348"
             FontSize="40"
-            Background="Transparent">
+            Background="Transparent"
+                Foreground="White">
                 <TextBlock.Effect>
                     <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="5" Opacity="1" />
                 </TextBlock.Effect>
-                <TextBlock.Foreground>
-                    <SolidColorBrush Color="White" />
-                </TextBlock.Foreground>
             </TextBlock>
             <Button Name="BackToTitleButton"
             Content="Back" 

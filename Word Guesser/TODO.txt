@@ -1,6 +1,7 @@
 ﻿
 General:
-
+- Check txt files for mistakes: fruitpunch
+- get rid of unused imports
 
 MainWindow:
 - Get rid of the bar up top
@@ -23,26 +24,49 @@ PlayersInitScreen:
 	Deleting another character then allows it
 
 PlayerInitBox:
+- if time, come back to put the color box in color picker
 
 QuestionsScreen:
-- Create the constructor and move all necessary stuff into that
+- clicked question border does not change colors
+- unclicked and clicked questions do not have a corner radius curve
+- fix format of category headers
 - Container box corner radius = 5
 
 Question:
-- ResourceReferenceKeyNotFoundException with the noMouseOverColorButtonStyle
 
-FileHandler:
-- something worng with numQuestionsPerCat in randedNums instantiation
-- strip new lines from array
+
 
 Podium:
 -add some kind of stroke to player names. Cant see the name when Fill is Yellow
 
 FileHandler:
--all of it
+- try to fix numQuestionsPerCat problem
 
 AnsweringScreen:
--all of it
+- insert player names 
+- implement way to get player guesses
+- button names need to change
+-losing values for playerGuess and arePlayerGuessesCorrect for each new person answering
+
+AwardedPointsScreen: 
+<Button Name="SubmitButton"
+                Content="Next" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Bottom" 
+                Height="30" 
+                Width="50"
+                Cursor="Hand" 
+                Margin="640,0,0,10"
+                Click="NextButton_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse x:Name="NextButtonElips" Fill="LightBlue" Stroke="Black" StrokeThickness="3"/>
+                            <ContentPresenter x:Name="NextButtonButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
 WinnerScreen:
 -All of it

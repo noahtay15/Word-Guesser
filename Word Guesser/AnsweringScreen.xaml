@@ -6,62 +6,75 @@
         xmlns:local="clr-namespace:Word_Guesser"
         mc:Ignorable="d"
         Title="AnsweringScreen" Background="#004">
-    <Grid>
-        <TextBlock 
-                Text="[Category Name]"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                Height="59"
-                Width="302"
-                FontSize="40"
-                Background="Transparent">
-            <TextBlock.Effect>
-                <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="5" Opacity="1" />
-            </TextBlock.Effect>
-            <TextBlock.Foreground>
-                <SolidColorBrush Color="White" />
-            </TextBlock.Foreground>
-        </TextBlock>
+    <Viewbox Stretch="Uniform">
         <Grid>
-            <Border BorderBrush="Gray" BorderThickness="4"  Width="250" Height="100" Margin="84,71,84,37">
-                <Grid x:Name="PlayerInitContainerGrid" Background="LightGray">
+            <Border BorderBrush="Gray" BorderThickness="4" Margin="84,71,84,104" Width="200" Height="100">
+                <Grid x:Name="HintGrid" Background="LightGray">
+                    <TextBlock
+                            x:Name="HintTextBlock"
+                            Text=""
+                            TextWrapping="Wrap"
+                            Margin="4,4,4,4"
+                            TextAlignment="Center"
+                        />
                 </Grid>
             </Border>
-        </Grid>
-        <TextBlock 
-                Text="[Player Name] enter your answer."
+            <Grid x:Name="CategoryHeaderGrid"
+                Margin="84,10,84,203">
+                <TextBlock
+                x:Name = "CategoryHeader"
+                Text=""
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
-                Height="19"
-                Width="218"
+                FontSize="40"
+                Background="Transparent">
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="5" Opacity="1" />
+                    </TextBlock.Effect>
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="White" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+            </Grid>
+            <Grid Margin="84,180,84,71" x:Name="EnterYourAnswerTextGrid">
+                <TextBlock x:Name="EnterYourAnswerTextBlock"
+                Text=""
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Height="24"
+                Width="293"
                 FontSize="15"
-                Background="Transparent" Margin="0,178,0,0">
-            <TextBlock.Effect>
-                <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="5" Opacity="1" />
-            </TextBlock.Effect>
-            <TextBlock.Foreground>
-                <SolidColorBrush Color="White" />
-            </TextBlock.Foreground>
-        </TextBlock>
-        <TextBox Margin="58,203,58,-5">
-
-        </TextBox>
-        <Button Name="SubmitButton"
-            Content="Submit" 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Bottom" 
-            Height="26" 
-            Width="51"
-            Cursor="Hand" 
-                Margin="365,0,0,-9">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <Ellipse x:Name="BackToPlayerInitButtonEllipse" Fill="LightBlue" Stroke="Black" StrokeThickness="3"/>
-                        <ContentPresenter x:Name="BackToPlayerInitButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-    </Grid>
+                Background="Transparent" 
+                    TextAlignment="Center">
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="5" Opacity="1" />
+                    </TextBlock.Effect>
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="White" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+            </Grid>
+            <Grid x:Name="AnswerBoxGrid"  Margin="140,204,140,41" Width="150" Height="20">
+                <TextBox x:Name="AnswerBox"/>
+            </Grid>
+            <Button Name="SubmitButton"
+                Content="Submit" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Bottom" 
+                Height="26" 
+                Width="51"
+                Cursor="Hand" 
+                Margin="400,0,0,10"
+                Click="SubmitButton_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse x:Name="BackToPlayerInitButtonEllipse" Fill="LightBlue" Stroke="Black" StrokeThickness="3"/>
+                            <ContentPresenter x:Name="BackToPlayerInitButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+    </Viewbox>
 </Page>

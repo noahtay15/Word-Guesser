@@ -1,26 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Shapes;
 
 namespace Word_Guesser
 {
-    internal class Podium : Grid
+    public class Podium : Grid
     {
         string name;
-        System.Windows.Media.Color color;
+        Color color;
+        int points;
 
-        public Podium(string name, System.Windows.Media.Color color, double leftMargin, double topMargin, double rightMargin, double bottomMargin, Grid parentGrid)
+        public Podium(Player player, double leftMargin, double topMargin, double rightMargin, double bottomMargin, Grid parentGrid)
         {
-            this.name = name;
-            this.color = color;
+            this.name = player.getName();
+            this.color = player.getPlayerColor();
             this.Margin = new Thickness(leftMargin, topMargin, rightMargin, bottomMargin);
+            this.points = player.getPoints();
 
             System.Windows.Shapes.Rectangle rectangle = new System.Windows.Shapes.Rectangle();
             System.Windows.Shapes.Ellipse ellipse = new System.Windows.Shapes.Ellipse();
@@ -46,7 +43,7 @@ namespace Word_Guesser
             playerScoreBlock.FontSize = 14;
             playerScoreBlock.TextAlignment = TextAlignment.Center;
             playerScoreBlock.Margin = new System.Windows.Thickness(18, 44, 18, 31);
-            playerScoreBlock.Text = "0";
+            playerScoreBlock.Text = this.points.ToString();
             this.Children.Add(playerScoreBlock);
 
             playerNameBlock.Name = "PlayerNamePodium1";
@@ -59,6 +56,11 @@ namespace Word_Guesser
             this.Children.Add(playerNameBlock);
 
             parentGrid.Children.Add(this);
+        }
+
+        public void addPoints(int num)
+        {
+            this.points += num;
         }
     }
 }

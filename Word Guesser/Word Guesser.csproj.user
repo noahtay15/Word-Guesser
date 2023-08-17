@@ -10,6 +10,9 @@
     <Compile Update="AnsweringScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="AwardedPointsScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PlayerNumberScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,6 +31,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="AnsweringScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AwardedPointsScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

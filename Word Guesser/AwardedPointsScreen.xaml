@@ -1,0 +1,28 @@
+﻿<Page x:Class="Word_Guesser.AwardedPointsScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Word_Guesser"
+      mc:Ignorable="d" 
+      Title="AwardedPoints" Background="#004">
+
+    <Viewbox Stretch="Uniform">
+        <Grid x:Name="ContainerGrid" Height="473" Width="737">
+            <Grid Name="HeaderGrid" Margin="0,0,0,413">
+                <TextBlock x:Name="HeaderTextBlock"
+                           Text="Points Awarded To:"
+                           TextAlignment="Center"
+                           FontSize="40" Margin="196,0,195,0"
+                           Foreground="White">
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="5" Opacity="1" />
+                    </TextBlock.Effect>
+                </TextBlock>
+            </Grid>
+            <Grid x:Name="PointsContainerGrid" Margin="120,65,120,50">
+            </Grid>
+            
+        </Grid>
+    </Viewbox>
+</Page>
