@@ -1,12 +1,54 @@
-﻿<Window x:Class="Word_Guesser.WinnerScreen"
+﻿<Page x:Class="Word_Guesser.WinnerScreen"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Word_Guesser"
         mc:Ignorable="d"
-        Title="WinnerScreen" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
-</Window>
+        Title="WinnerScreen" Background="#004">
+    <Viewbox Stretch="Uniform">
+        <Grid Name="ContainerGrid" Width="600" Height="730">
+            <Grid Name="CongratsGrid" Margin="0,0,0,682">
+                <TextBlock Name="CongratsTextBlock"
+                               Text="CONGRATULATIONS!!!"
+                               Foreground="Gold"
+                               FontSize="40"
+                           TextAlignment="Center">
+                    <TextBlock.Effect >
+                        <DropShadowEffect Color="Goldenrod" ShadowDepth="2" BlurRadius="1"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+            </Grid>
+            <Grid Name="WinnerGrid" Margin="0,89,0,607">
+                <TextBlock x:Name="WinnerTextBlock"
+                           Text=""
+                           Foreground="White"
+                           FontSize="25"
+                           TextAlignment="Center">
+                </TextBlock>
+            </Grid>
+            <Grid x:Name="ScoresGrid" Margin="0,176,0,156">
+            </Grid>
+            <Button Name="MainMenuButton"
+                Content="Menu" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Bottom" 
+                Height="33" 
+                Width="60"
+                Cursor="Hand"
+                Click="MainMenuButton_Click"
+                MouseEnter="MainMenuButton_MouseEnter"
+                MouseLeave="MainMenuButton_MouseLeave"
+                Margin="530,0,0,10">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse x:Name="MainMenuButtonEllipse" Fill="LightBlue" Width="60" Height="30" Stroke="Black" StrokeThickness="4"/>
+                            <ContentPresenter x:Name="MainMenuButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+    </Viewbox>
+</Page>

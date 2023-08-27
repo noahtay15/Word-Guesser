@@ -1,15 +1,15 @@
-Coca Cola:This drink is known for having cocaine in it in the years before 1905
-Sweet Tea:This drink is widely popular in the Southern US, made by boiling a type of leaf in water, then adding sugar
-Coffee:This drink is the most popular beverage used to wake up in the US
-Milk:This drink is the most associated with giving you strong bones
-Water:This drink is the natural drink, being around before any other kind of drink was invented
-Sprite:This lemon-lime flavored soda is known for its crisp and refreshing taste
-Dr. Pepper:This drink is named after a doctor
-Pepsi:This drink is known for being Coca Cola's biggest competitor
-Lemonade:This drink is a combination of a citrus fruit, sugar, and water
-Hot Chocolate:This drink is served hot. One of its most popular brands is Swiss Miss
-Orange Juice:This drink is made by squeezing oranges and is known for its high vitamin C content
-Fruit Punch:this drink combines various fruit juices and sometimes includes soda for a fizzy twist
-Root Beer:This sweet and effervescent soda is made from sassafras root bark and other botanicals, often enjoyed as a nostalgic treat
-Gatorade:This sports drink is designed to rehydrate and replenish electrolytes and is commonly consumed by athletes
-Red Bull:This drink is said to "give you wings"
+Coca-Cola:This drink is known for having cocaine in it in the years before 1905.
+Sweet Tea:This drink is widely popular in the Southern US, made by boiling a type of leaf in water, and adding sugar.
+Coffee:This drink is the most popular beverage used to wake up in the US.
+Milk:This drink is the most associated with giving you strong bones.
+Water:This drink is the natural drink, being around before any other kind of drink was invented.
+Sprite:This lemon-lime-flavored soda is known for its crisp and refreshing taste.
+Beer:This alcoholic drink is most commonly made from wheat.
+Pepsi:This drink is known for being Coca-Cola's biggest competitor.
+Lemonade:This drink is a combination of a citrus fruit, sugar, and water.
+Hot Chocolate:This drink is served hot. One of its most popular brands is Swiss Miss.
+Orange Juice:This drink is made by squeezing oranges and is known for its high vitamin C content.
+Fruit Punch:This drink combines various fruit juices and sometimes includes soda for a fizzy twist.
+Root Beer:This sweet and effervescent soda is made from sassafras root bark and other botanicals, often enjoyed as a nostalgic treat.
+Gatorade:This sports drink is designed to rehydrate and replenish electrolytes and is commonly consumed by athletes.
+Red Bull:This drink is said to "give you wings."

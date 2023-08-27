@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace Word_Guesser
 {
@@ -13,22 +15,23 @@ namespace Word_Guesser
         private string answer;
         private string category;
         private Player[] players;
-        private static string[] playerGuesses;
-        private static int position = 0;
-        private static bool[] arePlayerGuessesCorrect;
+        private string[] playerGuesses;
+        private int position = 0;
+        private bool[] arePlayerGuessesCorrect;
+        private bool allQuestionsSelected;
 
-        public AnsweringScreen(string hint, string answer, string category, Player[] players)
+        public AnsweringScreen(string hint, string answer, string category, Player[] players, bool allQuestionsSelected)
         {
             InitializeComponent();
-
+            this.allQuestionsSelected = allQuestionsSelected;
             this.hint = hint;
             this.answer = answer;
             this.category = category;
             this.players = players;
-            playerGuesses = new string[players.Length]; //figure out how to not lose past values
             CategoryHeader.Text = category;
             HintTextBlock.Text = hint;
-            arePlayerGuessesCorrect = new bool[players.Length]; //figure out how to not lose past values
+            playerGuesses = new string[players.Length];
+            arePlayerGuessesCorrect = new bool[players.Length];
             EnterYourAnswerTextBlock.Text = players[position].getName() + " enter your answer.";
         }
 
@@ -59,16 +62,37 @@ namespace Word_Guesser
             {
                 position++;
 
-                MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
-                mainWindow?.MainFrame.Navigate(new AnsweringScreen(this.hint, this.answer, this.category, this.players));
+                EnterYourAnswerTextBlock.Text = players[position].getName() + " enter your answer.";
+                AnswerBox.Text = "";
             }
             else
             {
                 MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
-                mainWindow?.MainFrame.Navigate(new AwardedPointsScreen(players, arePlayerGuessesCorrect, answer, playerGuesses));
+                mainWindow?.setAwardedPointsScreen(new AwardedPointsScreen(players, arePlayerGuessesCorrect, answer, playerGuesses, allQuestionsSelected));
+                mainWindow?.MainFrame.Navigate(mainWindow.getAwardedPointsScreen());
+
+
             }
 
 
+        }
+
+        private void SubmitButton_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Ellipse? ellipse = SubmitButton.Template.FindName("SubmitButtonEllipse", SubmitButton) as Ellipse;
+            ellipse?.SetValue(Shape.StrokeProperty, Brushes.White);
+
+            ContentPresenter? contentPresenter = SubmitButton.Template.FindName("SubmitButtonEllipse", SubmitButton) as ContentPresenter;
+            contentPresenter?.SetValue(Control.ForegroundProperty, Brushes.White);
+        }
+
+        private void SubmitButton_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Ellipse? ellipse = SubmitButton.Template.FindName("SubmitButtonEllipse", SubmitButton) as Ellipse;
+            ellipse?.SetValue(Shape.StrokeProperty, Brushes.Black);
+
+            ContentPresenter? contentPresenter = SubmitButton.Template.FindName("SubmitButtonEllipse", SubmitButton) as ContentPresenter;
+            contentPresenter?.SetValue(Control.ForegroundProperty, Brushes.Black);
         }
     }
 }

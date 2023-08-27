@@ -213,7 +213,9 @@ namespace Word_Guesser
             }
 
             MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
-            mainWindow?.MainFrame.Navigate(new QuestionsScreen(players));
+            QuestionsScreen questionsScreen = new QuestionsScreen(players);
+            mainWindow?.setQuestionsScreen(questionsScreen);
+            mainWindow?.MainFrame.Navigate(questionsScreen);
         }
 
         private void SubmitButton_MouseEnter(object sender, MouseEventArgs e)

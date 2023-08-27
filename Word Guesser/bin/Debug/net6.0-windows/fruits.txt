@@ -1,15 +1,15 @@
-banana:This fruit is most closely associated with monkeys
-apple:This fruit is the most associated fruit when thinking about shooting it off of someone's head
-pear:This fruit is sweet, and comes in various shaopes and sizes, with a distinctive bulbous bottom
-orange:This fruit is named the same as a color
-mango:This tropical fruit has a juicy, yelow-orange flesh and is often referred to as the "king of fruits"
-grape:The most popular types of wine are made from this fruit
-pineapple:This fruit is the most popular spikey fruit. Fun fact; It has a certain enzyme in it that eats you back
-peach:The state of Georgia is known for this fruit
-kiwi:This fruit shares a name with a small, flightless bird that is native to New Zealand
-blue berry:This fruit is known for its deep blue-purple color
-cherry:These small, round fruits are usually red and have a single hard pit at the center
-lemon:This citrus fruit is sour in taste and is commonly used for its juice in cooking and beverages
-coconut:This tropical fruit has a hard shell and a refreshing, creamy white flesh inside
-plum:Although it is technicaly a fruit, it is used as a vegetable in culinary applications. It has a green interior
-watermelon:This large, jucy fruit is a popular summertime treat, and is often eaten in slices
+Banana:This fruit is most closely associated with monkeys.
+Apple:This fruit is known for keeping doctors away.
+Pear:This fruit is sweet, with usually a grainy, green skin and a distinctive bulbous bottom.
+Orange:This fruit is named the same as a color.
+Mango:This tropical fruit has a juicy, yellow-orange flesh and is often referred to as the "king of fruits."
+Grape:The most popular types of wine are made from this fruit.
+Pineapple:This fruit is the most popular spiky fruit. It has a certain enzyme in it that eats you back.
+Peach:The state of Georgia is known for this fruit.
+Kiwi:This fruit shares a name with a small, flightless bird that is native to New Zealand.
+Blue berry:This fruit is known for its deep blue-purple color.
+Cherry:These small, round fruits are usually red and have a single hard pit at the center.
+Lemon:This citrus fruit is sour in taste and is commonly used for its juice in cooking and beverages.
+Coconut:This tropical fruit has a hard shell and a refreshing, creamy white flesh inside.
+Plum:Although it is technically a fruit, it is used as a vegetable in culinary applications. It has a green interior.
+Watermelon:This large, juicy fruit is a popular summertime treat and is often eaten in slices.

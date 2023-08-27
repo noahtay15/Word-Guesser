@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace Word_Guesser
@@ -58,7 +50,8 @@ namespace Word_Guesser
         private void LoadPlayerInit(int numPlayers)
         {
             MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
-            mainWindow?.MainFrame.Navigate(new PlayersInitScreen(numPlayers));
+            mainWindow?.setPlayersInitScreen(new PlayersInitScreen(numPlayers));
+            mainWindow?.MainFrame.Navigate(mainWindow.getPlayersInitScreen());
         }
 
         private void BackToTitleButtonClick(object sender, RoutedEventArgs e) 

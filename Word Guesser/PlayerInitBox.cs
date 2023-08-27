@@ -81,7 +81,7 @@ namespace Word_Guesser
             orange.Tag = Colors.Orange;
             ComboBoxItem yellow = new ComboBoxItem();
             yellow.Content = "Yellow";
-            yellow.Tag = Colors.Yellow;
+            yellow.Tag = Colors.Gold;
             ComboBoxItem pink = new ComboBoxItem();
             pink.Content = "Pink";
             pink.Tag = Colors.Pink;
@@ -148,7 +148,7 @@ namespace Word_Guesser
             {
                 errorMessage.Text = errorMessage.Text.Replace(" Must not be empty.", "");
             }
-            else if (errorMessage.Text == "" && textBox.Text != "" && textBox.Text != null)
+            else if (errorMessage.Text == "" && textBox.Text != "" && textBox.Text != null) 
             {
                 ValidationPassed.Invoke(this, new EventArgs());
             }

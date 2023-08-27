@@ -9,9 +9,8 @@ internal class FileHandler
     private string[,] sports;
     private string[,] drinks;
     private string[,] animals;
-    private int numQuestionsPerCat;
 
-    public FileHandler(string citiesFilePath, string flowersFilePath, string sportsFilePath, string drinksFilePath, string animalsFilePath, int numQuestionsPerCat)
+    public FileHandler(string citiesFilePath, string flowersFilePath, string sportsFilePath, string drinksFilePath, string animalsFilePath)
 	{
 		try
 		{
@@ -20,7 +19,6 @@ internal class FileHandler
             this.sports = createQuestionsArray(sportsFilePath);
             this.drinks = createQuestionsArray(drinksFilePath);
             this.animals = createQuestionsArray(animalsFilePath);
-            this.numQuestionsPerCat = numQuestionsPerCat;
         }
         catch (FileNotFoundException ex)
         {

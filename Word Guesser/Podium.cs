@@ -1,6 +1,4 @@
-﻿
-using System.Runtime.CompilerServices;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -11,6 +9,7 @@ namespace Word_Guesser
         string name;
         Color color;
         int points;
+        private TextBlock playerScoreBlock;
 
         public Podium(Player player, double leftMargin, double topMargin, double rightMargin, double bottomMargin, Grid parentGrid)
         {
@@ -21,7 +20,7 @@ namespace Word_Guesser
 
             System.Windows.Shapes.Rectangle rectangle = new System.Windows.Shapes.Rectangle();
             System.Windows.Shapes.Ellipse ellipse = new System.Windows.Shapes.Ellipse();
-            TextBlock playerScoreBlock = new TextBlock();
+            playerScoreBlock = new TextBlock();
             TextBlock playerNameBlock = new TextBlock();
 
             rectangle.Fill = new SolidColorBrush(color);
@@ -61,6 +60,7 @@ namespace Word_Guesser
         public void addPoints(int num)
         {
             this.points += num;
+            this.playerScoreBlock.Text = this.points.ToString();
         }
     }
 }

@@ -1,15 +1,15 @@
-Dog:This animal is known as man's best friend
-Cat:This animal is known for hunting mice and liking milk
-Mouse:This animal is known for loving cheese
-Lion:This animal is known as the king of the jungle
-Tiger:This animal is known for its orange and black stripes
-Monkey:This animal is known for loving bananas
-Wolf:This animal is known for howling at the moon
-Bear:This animal is known as the largest predator in North America
-Giraffe:This animal is known for having an extremely long neck
-Snake:This animal is known for slithering on the ground
-Elephnt:This animal is known for its long trunk, ivory tusks, and remarkable intelligence
-Dolphin:This highly intelligent marine animal is known for its playful nature and acrobatic abilities
-Penguin:This flightless animal is known for its black and white plumage and its ability to thrive in cold environments
-Gorilla:This large animal is closely related to humans and is known for its physical strength and gentle demeanor
-Octopus:This highly intelligent marine animal has eight arms and is known for its ability to change colors and camouflage
+Dog:This animal is known as man's best friend.
+Cat:This animal is known for hunting mice and liking milk.
+Mouse:This animal is known for loving cheese.
+Lion:This animal is known as the king of the jungle.
+Tiger:This animal is known for its orange and black stripes.
+Monkey:This animal is known for loving bananas.
+Wolf:This animal is known for howling at the moon.
+Bear:This animal is known as the largest predator in North America.
+Giraffe:This animal is known for having an extremely long neck.
+Snake:This animal is known for slithering on the ground.
+Elephant:This animal is known for its long trunk, ivory tusks, and remarkable intelligence.
+Dolphin:This highly intelligent marine mammal is known for its playful nature and acrobatic abilities.
+Penguin:This flightless animal is known for its black and white plumage and its ability to thrive in cold environments.
+Gorilla:This large animal is closely related to humans and is known for its physical strength and gentle demeanor.
+Octopus:This highly intelligent marine animal has eight arms and is known for its ability to change colors and camouflage.

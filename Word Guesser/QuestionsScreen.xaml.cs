@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace Word_Guesser
 {
@@ -11,11 +12,11 @@ namespace Word_Guesser
     /// </summary>
     public partial class QuestionsScreen : Page
     {
-        private int numPlayers;
+        private int numPlayers, numQuestionsSelected = 0;
         Player[] players;
         private Question[,] questions;
         private Podium[] podiums;
-
+        private bool allQuestionsSelected = false;
 
         public QuestionsScreen(Player[] players)
         {
@@ -120,7 +121,7 @@ namespace Word_Guesser
             parentGrid.Children.Add(headerFive);
 
             //Instantiate all of the questions
-            FileHandler fileHandler = new FileHandler("cities.txt", "fruits.txt", "sports.txt", "drinks.txt", "animals.txt", 4);
+            FileHandler fileHandler = new FileHandler("cities.txt", "fruits.txt", "sports.txt", "drinks.txt", "animals.txt");
             string[,] cities = fileHandler.getCities();
             string[,] fruits = fileHandler.getFruits();
             string[,] sports = fileHandler.getSports();
@@ -167,13 +168,13 @@ namespace Word_Guesser
             if(numPlayers == 1)
             {
                 Podium player1Podium = new Podium(players[0], 359, 359, 359, 0, ContainingGrid); //name, color, margin, parentGrid
-                podiums = new Podium[] { player1Podium };
+                podiums = new Podium[] {player1Podium};
             }
             else if(numPlayers == 2)
             {
                 Podium player1Podium = new Podium(players[0], 249, 359, 469, 0, ContainingGrid);
                 Podium player2Podium = new Podium(players[1], 469, 359, 249, 0, ContainingGrid);
-                podiums = new Podium[] { player1Podium, player2Podium };
+                podiums = new Podium[] {player1Podium, player2Podium};
                 
             }
             else if(numPlayers == 3)
@@ -181,7 +182,7 @@ namespace Word_Guesser
                 Podium player1Podium = new Podium(players[0], 152, 359, 566, 0, ContainingGrid);
                 Podium player2Podium = new Podium(players[1], 359, 359, 359, 0, ContainingGrid);
                 Podium player3Podium = new Podium(players[2], 566, 359, 152, 0, ContainingGrid);
-                podiums = new Podium[] { player1Podium, player2Podium, player3Podium};
+                podiums = new Podium[] {player1Podium, player2Podium, player3Podium};
             }
             else if(numPlayers == 4)
             {
@@ -189,11 +190,15 @@ namespace Word_Guesser
                 Podium player2Podium = new Podium(players[1], 265, 359, 453, 0, ContainingGrid);
                 Podium player3Podium = new Podium(players[2], 457, 359, 261, 0, ContainingGrid);
                 Podium player4Podium = new Podium(players[3], 610, 359, 108, 0, ContainingGrid);
-                podiums = new Podium[] { player1Podium, player2Podium, player3Podium, player4Podium};
+                podiums = new Podium[] {player1Podium, player2Podium, player3Podium, player4Podium};
             }
             else
             {
                 throw new Exception("Once again, congrats. You should have not been able to get here either");
+            }
+            for(int i = 0; i < numPlayers; i++)
+            {
+                players[i].setPodium(podiums[i]);
             }
         }
 
@@ -214,6 +219,11 @@ namespace Word_Guesser
 
         private void QuestionButton_Click(object sender, RoutedEventArgs e)
         {
+            numQuestionsSelected++;
+            if (numQuestionsSelected == 20) 
+            {
+                allQuestionsSelected = true;
+            }
             Question question = (Question)sender;
             question.setHasBeenClicked(true);
             Dispatcher.InvokeAsync(() =>
@@ -224,13 +234,33 @@ namespace Word_Guesser
             });
 
             MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
-            mainWindow?.MainFrame.Navigate(new AnsweringScreen(question.getHint(), question.getAnswer(), question.getCategory(), players));
+            mainWindow?.setAnsweringScreen(new AnsweringScreen(question.getHint(), question.getAnswer(), question.getCategory(), players, allQuestionsSelected));
+            mainWindow?.MainFrame.Navigate(mainWindow.GetAnsweringScreen());
         }
 
-        private void BackToPlayerInitButton_Click(object sender, RoutedEventArgs e)
+        private void QuitButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow? mainWindow = Application.Current.MainWindow as MainWindow;
-            mainWindow?.MainFrame.NavigationService?.GoBack();
+            mainWindow?.setWinnerScreen(new WinnerScreen(players));
+            mainWindow?.MainFrame.Navigate(mainWindow.getWinnerScreen());
+        }
+
+        private void QuitButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Ellipse? ellipse = QuitButton.Template.FindName("QuitButtonEllipse", QuitButton) as Ellipse;
+            ellipse?.SetValue(Shape.StrokeProperty, Brushes.White);
+
+            ContentPresenter? contentPresenter = QuitButton.Template.FindName("QuitButtonEllipse", QuitButton) as ContentPresenter;
+            contentPresenter?.SetValue(Control.ForegroundProperty, Brushes.White);
+        }
+
+        private void QuitButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Ellipse? ellipse = QuitButton.Template.FindName("QuitButtonEllipse", QuitButton) as Ellipse;
+            ellipse?.SetValue(Shape.StrokeProperty, Brushes.Black);
+
+            ContentPresenter? contentPresenter = QuitButton.Template.FindName("QuitButtonEllipse", QuitButton) as ContentPresenter;
+            contentPresenter?.SetValue(Control.ForegroundProperty, Brushes.Black);
         }
     }
 }

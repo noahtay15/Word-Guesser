@@ -1,26 +1,23 @@
 ﻿
 General:
-- Check txt files for mistakes: fruitpunch
-- get rid of unused imports
+- go through all warnings and fix
+- add try catch statements
+- could touch up XAML to look prettier
 
 MainWindow:
-- Get rid of the bar up top
 
 TitleScreen:
--May come back after completing everything and touch up the xaml
 
 Player:
--May have more but idk
 
 PlayerNumberScreen:
 
 PlayersInitScreen:
-- finish SubmitButton_Click. Details in comments of that event handler
 - user input validation problem where entering a valid name -> reentering only 
 	one letter does not reenable submit button until the second letter is 
 	entered
 - other userinput problem where entering a name that is too long and then 
-	deleting down to where error mesage disaperas, will not allow submission. 
+	deleting down to where error mesage disappears will not allow submission. 
 	Deleting another character then allows it
 
 PlayerInitBox:
@@ -30,43 +27,17 @@ QuestionsScreen:
 - clicked question border does not change colors
 - unclicked and clicked questions do not have a corner radius curve
 - fix format of category headers
-- Container box corner radius = 5
+- Question container box corner radius = 5
 
 Question:
 
-
-
 Podium:
--add some kind of stroke to player names. Cant see the name when Fill is Yellow
 
 FileHandler:
-- try to fix numQuestionsPerCat problem
 
 AnsweringScreen:
-- insert player names 
-- implement way to get player guesses
-- button names need to change
--losing values for playerGuess and arePlayerGuessesCorrect for each new person answering
+- input validation
 
-AwardedPointsScreen: 
-<Button Name="SubmitButton"
-                Content="Next" 
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Bottom" 
-                Height="30" 
-                Width="50"
-                Cursor="Hand" 
-                Margin="640,0,0,10"
-                Click="NextButton_Click">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Grid>
-                            <Ellipse x:Name="NextButtonElips" Fill="LightBlue" Stroke="Black" StrokeThickness="3"/>
-                            <ContentPresenter x:Name="NextButtonButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+AwardedPointsScreen:
 
 WinnerScreen:
--All of it

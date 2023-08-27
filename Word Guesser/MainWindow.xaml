@@ -6,5 +6,5 @@
         xmlns:local="clr-namespace:Word_Guesser"
         mc:Ignorable="d"
         Title="Word Guesser" Height="450" Width="800">
-    <Frame x:Name="MainFrame" />
+    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
 </Window>

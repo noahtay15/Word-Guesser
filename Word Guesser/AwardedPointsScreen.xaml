@@ -9,20 +9,50 @@
 
     <Viewbox Stretch="Uniform">
         <Grid x:Name="ContainerGrid" Height="473" Width="737">
-            <Grid Name="HeaderGrid" Margin="0,0,0,413">
+            <Grid Name="AnswerGrid" Margin="0,0,0,420">
+                <TextBlock Name="AnswerTextBlock"
+                    Text="Answer: "
+                           Foreground="White"
+                           FontSize="30"
+                           TextAlignment="Center">
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="5" Opacity="1" />
+                    </TextBlock.Effect>
+                </TextBlock>
+            </Grid>
+            <Grid Name="HeaderGrid" Margin="0,104,0,309">
                 <TextBlock x:Name="HeaderTextBlock"
                            Text="Points Awarded To:"
                            TextAlignment="Center"
-                           FontSize="40" Margin="196,0,195,0"
+                           FontSize="30" Margin="196,0,195,0"
                            Foreground="White">
                     <TextBlock.Effect>
                         <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="5" Opacity="1" />
                     </TextBlock.Effect>
                 </TextBlock>
             </Grid>
-            <Grid x:Name="PointsContainerGrid" Margin="120,65,120,50">
+            <Grid x:Name="PointsContainerGrid" Margin="178,181,178,10">
             </Grid>
-            
+            <Button Name="NextButton"
+                Content="Next" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Bottom" 
+                Height="30" 
+                Width="50"
+                Cursor="Hand" 
+                Margin="640,0,0,10"
+                Click="NextButton_Click"
+                    MouseEnter="NextButton_MouseEnter"
+                    MouseLeave="NextButton_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse x:Name="NextButtonEllipse" Fill="LightBlue" Stroke="Black" StrokeThickness="3"/>
+                            <ContentPresenter x:Name="NextButtonButtonContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </Grid>
     </Viewbox>
 </Page>

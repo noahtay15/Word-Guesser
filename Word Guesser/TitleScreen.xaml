@@ -16,13 +16,11 @@
                     </Geometry>
                 </Grid.Resources>
             </Grid>
-            <Border Background="Gray" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="0,58,0,153">
+            <Border Background="Gray" BorderBrush="Black" BorderThickness="2" CornerRadius="15" Margin="0,58,0,153"/>
+            <Border Background="DeepSkyBlue" BorderBrush="Black" BorderThickness="2" CornerRadius="15" Margin="0,55,0,157">
                 <TextBlock Text="Word Guesser" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
-                    <TextBlock.Effect>
-                        <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="5" Opacity="1" />
-                    </TextBlock.Effect>
                     <TextBlock.Foreground>
-                        <SolidColorBrush Color="LightBlue"/>
+                        <SolidColorBrush Color="Black"/>
                     </TextBlock.Foreground>
                 </TextBlock>
             </Border>
@@ -36,7 +34,7 @@
                 Cursor="Hand"
                 MouseEnter="PlayButtonMouseEnter"
                 MouseLeave="PlayButtonMouseLeave"
-                FontSize="16"
+                FontSize="20"
                 >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
@@ -59,7 +57,7 @@
                 Margin="0,190,0,0"
                 MouseEnter="QuitButtonMouseEnter"
                 MouseLeave="QuitButtonMouseLeave"
-                FontSize="16" >
+                FontSize="20" >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Grid>

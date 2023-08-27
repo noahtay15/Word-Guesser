@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Media;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Word_Guesser
 {
@@ -14,7 +9,8 @@ namespace Word_Guesser
         private int points = 0;
         private int position;
         private String? guess;
-        Color playerColor;
+        private Color playerColor;
+        private Podium podium;
 
         public Player(String name, Color playerColor) 
         {
@@ -72,6 +68,16 @@ namespace Word_Guesser
         public void setPlayerColor(Color playerColor)
         {
             this.playerColor = playerColor;
+        }
+
+        public Podium getPodium()
+        {
+            return podium;
+        }
+
+        public void setPodium(Podium podium)
+        {
+            this.podium = podium;
         }
     }
 }
