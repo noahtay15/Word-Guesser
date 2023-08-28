@@ -1,5 +1,5 @@
 This is a personal project that I worked on in the summer of 2023. It is meant to act as practice and showcase the skills in C#/.NET that I learned in the summer of 2023. This project is a Jeopardy game made with WPF. It uses XAML and C#. 
-<p><strong>Disclaimer:</strong> This is a working product, but not a finished product. See TODO.txt to see some of the things I plan on working on. Think of it as a product at the end of sprint one. It's not super polished with things such as input validation, and UIo design, but I don't have time to work on it since I have an internship and my capstone project this semester.</p>
+<p><strong>Disclaimer:</strong> This is a working product, but not a finished product. See TODO.txt to see some of the things I plan on working on. Think of it as a product at the end of sprint one. It's not super polished with things such as input validation, and UI design, but I don't have time to work on it since I have an internship and my capstone project this semester.</p>
 <h2>Features:</h2>
 <ul>
   <li>Allows for 1 to 4 players. Some aspects of the game change dynamically based on the number of players.</li>
